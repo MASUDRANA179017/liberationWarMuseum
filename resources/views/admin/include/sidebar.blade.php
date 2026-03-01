@@ -113,7 +113,7 @@
                 <li class="nav-item {{ Route::currentRouteName() == 'products.index' ? 'active' : '' }}">
                     <a href="{{ route('products.index') }}">
                         <i class='bx bx-cube-alt'></i>
-                        <span class="sub-item">Products</span>
+                        <span class="sub-item">Archives & Events</span>
                     </a>
                 </li>
                 <li class="nav-item {{ Route::currentRouteName() == 'film.index' ? 'active' : '' }}">

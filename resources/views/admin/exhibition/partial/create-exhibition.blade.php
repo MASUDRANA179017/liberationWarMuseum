@@ -21,9 +21,9 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="director_name">Director Name<span class="text-danger"> *</span></label>
+                                    <label for="director_name">Venue Name<span class="text-danger"> *</span></label>
                                     <input type="text" class="form-control custom-input" id="director_name" name="director_name"
-                                        placeholder="Director Name" required>
+                                        placeholder="Venue Name" required>
                                 </div>
                             </div>
 

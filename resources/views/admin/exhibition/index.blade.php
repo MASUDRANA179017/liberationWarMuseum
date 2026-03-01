@@ -31,7 +31,7 @@
                                                 <tr role="row">
                                                     <th>Exhibition Title</th>
                                                     <th>Image</th>
-                                                    <th>Director Name</th>
+                                                    <th>Venue Name</th>
                                                     <th>Status</th>
                                                     <th>Action</th>
 

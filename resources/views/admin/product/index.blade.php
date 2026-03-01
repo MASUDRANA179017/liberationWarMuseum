@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Products')
+@section('title','Archives & Events')
 @section('content')
 <style>
     .dynamic-field-block {
@@ -18,11 +18,11 @@
                     <div class="card-header">
                         <div class="d-flex align-items-center">
                             <h4 class="product-details-card-header-title">
-                                <i class='bx bx-carousel bx-tada'></i> Products
+                                <i class='bx bx-carousel bx-tada'></i> Archives & Events
                             </h4>
                             <a href="javascript:void(0)" class="purchase-button ms-auto" data-bs-toggle="modal"
                                data-bs-target="#productFormModal" id="addProductBtn">
-                                <i class='bx bx-message-square-add bx-tada'></i> Add New Product
+                                <i class='bx bx-message-square-add bx-tada'></i> Add New Archive/Event/Performance
                             </a>
                         </div>
                     </div>
@@ -34,6 +34,7 @@
                                         <th>Sl</th>
                                         <th>Image</th>
                                         <th>Name</th>
+                                        <th>Type</th>
                                         <th>Subtitle/Short Description</th>
                                         <th>Status</th>
                                         <th>Action</th>
@@ -52,7 +53,7 @@
         <div class="modal-dialog modal-lg modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="productFormModalLabel">Add/Edit Product</h5>
+                    <h5 class="modal-title" id="productFormModalLabel">Add/Edit Archive & Event / Performance</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <div class="modal-body">
@@ -61,9 +62,18 @@
                         <input type="hidden" name="id" id="productId">
 
                         <h6 class="form-section-title">General Information</h6>
+
                         <div class="mb-3">
-                            <label class="form-label">Product Name</label>
-                            <input type="text" name="name" class="form-control" id="productName" placeholder="e.g. Floor Hardener">
+                            <label class="form-label">Type</label>
+                            <select name="type" id="productType" class="form-control">
+                                <option value="archive_event">Archive & Event</option>
+                                <option value="performance">Performance</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" name="name" class="form-control" id="productName" placeholder="e.g. Event Name">
                         </div>
                         <div class="mb-3">
                             <label class="form-label">Subtitle/Short Description</label>
@@ -155,6 +165,7 @@ let table = $('#productTable').DataTable({
             }
         },
         { data: 'name', name: 'name' },
+        { data: 'type', name: 'type' },
         { data: 'subtitle', name: 'subtitle' },
         { data: 'status', name: 'status', orderable: false, searchable: false },
         { data: 'action', name: 'action', orderable: false, searchable: false }
@@ -165,10 +176,11 @@ let table = $('#productTable').DataTable({
 $(document).on('click', '#addProductBtn', function() {
     $('#productForm')[0].reset();
     $('#productId').val('');
+    $('#productType').val('archive_event');
     $('#keyBenefitsContainer').empty();
     $('#coreFeaturesContainer').empty();
     $('#previewImage').html('');
-    $('#productFormModalLabel').text('Add New Product');
+    $('#productFormModalLabel').text('Add New Archive/Event/Performance');
 });
 
 // Image preview
@@ -256,6 +268,7 @@ $(document).on('click', '.edit-btn', function() {
     $.get("/dashboard/products/"+id+"/edit", function(res){
         $('#productId').val(res.id || '');
         $('#productName').val(res.name || '');
+        $('#productType').val(res.type || 'archive_event');
         $('#productSubtitle').val(res.subtitle || '');
         $('#productDescription').val(res.description || '');
         $('#productApplications').val(res.applications || '');

@@ -23,7 +23,7 @@
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
-                                    <label for="edit_director_name">Director Name</label>
+                                    <label for="edit_director_name">Venue Name</label>
                                     <input type="text" class="form-control custom-input" id="edit_director_name" name="director_name">
                                 </div>
                             </div>

@@ -21,9 +21,9 @@
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
-                                    <label for="director_name">Director Name</label>
+                                    <label for="director_name">Venue Name</label>
                                     <input type="text" class="form-control custom-input" id="director_name" name="director_name"
-                                        placeholder="Director Name">
+                                        placeholder="Venue Name">
                                 </div>
                             </div>
 

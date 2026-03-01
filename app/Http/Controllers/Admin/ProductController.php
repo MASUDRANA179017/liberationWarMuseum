@@ -23,7 +23,7 @@ public function getProductColors($id)
 
     if (!empty($product->color) && is_array($product->color)) {
         $colors = $product->color;
-    } 
+    }
     elseif (!empty($product->color) && is_string($product->color)) {
         $decoded = json_decode($product->color, true);
         if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
@@ -52,13 +52,16 @@ public function getProductColors($id)
                     $text  = $row->status ? 'Active' : 'Inactive';
                     return '<span class="badge '.$class.' status-badge" style="cursor:pointer" data-id="'.$row->id.'">'.$text.'</span>';
                 })
+                ->addColumn('type', function ($row) {
+                     return $row->type === 'performance' ? '<span class="badge bg-info">Performance</span>' : '<span class="badge bg-secondary">Archive & Event</span>';
+                })
                 ->addColumn('action', function ($row) {
                     return '
                         <button class="btn btn-sm btn-primary edit-btn" data-id="'.$row->id.'">Edit</button>
                         <button class="btn btn-sm btn-danger delete-btn" data-id="'.$row->id.'">Delete</button>
                     ';
                 })
-                ->rawColumns(['status','action'])
+                ->rawColumns(['status', 'type', 'action'])
                 ->make(true);
         }
 
@@ -85,6 +88,7 @@ public function getProductColors($id)
         $product->subtitle = $request->subtitle;
         $product->description = $request->description;
         $product->applications = $request->applications;
+        $product->type = $request->type ?? 'archive_event';
 
         $product->text_before_price = $request->text_before_price;
         $product->price = $request->price;
