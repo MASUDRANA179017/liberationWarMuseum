@@ -1,0 +1,129 @@
+
+
+
+@media only screen and (max-width: 576px) {
+    #projectSection .d-flex {
+        display: block !important; 
+    }
+
+    #projectSection .w-30 {
+        width: 100% !important; 
+    }
+
+    .award {
+        padding-top: 0 !important;
+    }
+    #serviceSection {
+        padding-bottom: 0 !important;
+    }
+       .event-eight-wrap {
+        display: block !important;
+        align-items: unset;
+    }
+
+    .footer-eight-top-info.call {
+        margin-left: 34px;
+    }
+    .fs-20 {
+        font-size: 16px !important;
+    }
+}
+
+
+@media only screen and (max-width: 576px) {
+    .navbar-logo img {
+        height: 30px !important;
+    }
+    .header .contact-btn {
+        display: none !important;
+
+    }
+    .banner-two .banner-two__slider-content h1 {
+        font-size: 30px !important;
+    }
+    .banner-six-slide-dot {
+        display: none !important;
+    }
+    .difference-two .container .difference-two__content .title-animation{
+        font-size: 20px !important;
+        line-height: normal;
+    }
+    .difference-two__content .about-description p{
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+    }
+
+   
+    .about-description .difference-two__inner .help__content-cta {
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        justify-content: center;
+    }
+    .section-six-title.text-white {
+        font-size: 30px;
+    }
+
+    #serviceSection .container .title-animation {
+        font-size: 30px !important;
+        line-height: normal !important;
+    }
+
+    #projectSection .container-fluid .section-eight-wrapper .title-animation {
+        font-size: 30px !important;
+        line-height: normal !important;
+    }
+    .faq-eight-area {
+        
+         padding-bottom: 10px !important; 
+    }
+    .testimonial-six-area {
+        padding: 10px 0 45px;
+    }
+
+    .event-eight-area {
+        padding-bottom: 40px !important;
+        
+    }
+
+    #projectSection .container-fluid .events-six-button {
+        margin-top: 0px !important;
+    }
+    #teamSection{
+        padding-top: 40px !important;
+        padding-bottom: 40px !important;
+    }
+    .title-animation {
+        font-size: 30px !important;
+        line-height: normal !important;
+    }
+    #teamSection .container {
+        padding: 0px 40px !important;
+    }
+    .testimonial-six-area{
+        padding-top: 0px !important;
+    }
+    .testimonial-six-area .section-six-wrapper .section-six-title {
+        font-size: 30px !important;
+        line-height: normal
+    }
+    .testimonial-six-area .testimonial-six-frist-row {
+        padding-bottom: 30px !important;
+    }
+    .brand-six-area .container .row{
+        justify-content: center !important;
+        padding: 0px 40px !important;
+    }
+    .brand-six-area .container .row div{
+        padding: 5px 0px !important;
+    }
+    #serviceSection {
+        padding-top: 40px !important;
+        padding-bottom: 30px !important;
+    }
+    #projectSection{
+        padding-top: 30px !important;
+        padding-bottom: 40px !important;
+    }
+    
+}

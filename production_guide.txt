@@ -1,0 +1,54 @@
+# Laravel Project Deployment Guide for Shared Hosting (Love Hosting/cPanel)
+
+এই গাইডটি অনুসরণ করে আপনি আপনার Laravel প্রজেক্টটি লাইভ সার্ভারে ডেপ্লয় করতে পারবেন।
+
+## ধাপ ১: ফাইল আপলোড (File Upload)
+১. আপনার পুরো প্রজেক্ট ফোল্ডারটি জিপ (ZIP) করুন।
+   - `node_modules` ফোল্ডারটি বাদ দিতে পারেন (এটি সার্ভারে প্রয়োজন নেই)।
+   - `vendor` ফোল্ডারটি সহ জিপ করবেন (যেহেতু সার্ভারে composer install রান করা কঠিন হতে পারে)।
+২. আপনার cPanel-এর `File Manager`-এ যান।
+৩. `public_html` ফোল্ডারের ভেতর আপনার জিপ ফাইলটি আপলোড করুন এবং এক্সট্রাক্ট (Extract) করুন।
+   - যদি সাব-ডোমেইনে দেন, তবে সেই ফোল্ডারে আপলোড করুন।
+
+## ধাপ ২: ডাটাবেস সেটআপ (Database Setup)
+১. আপনার লোকাল কম্পিউটার থেকে ডাটাবেস এক্সপোর্ট করুন (phpMyAdmin থেকে `.sql` ফাইল)।
+২. লাইভ সার্ভারের cPanel থেকে `MySQL Database Wizard`-এ যান।
+৩. একটি নতুন ডাটাবেস তৈরি করুন।
+৪. একটি নতুন ডাটাবেস ইউজার তৈরি করুন এবং পাসওয়ার্ড মনে রাখুন।
+৫. ইউজারকে ডাটাবেসের সাথে কানেক্ট করুন এবং "All Privileges" দিন।
+৬. `phpMyAdmin`-এ যান এবং আপনার নতুন ডাটাবেসে লোকাল থেকে নেওয়া `.sql` ফাইলটি ইমপোর্ট (Import) করুন।
+
+## ধাপ ৩: .env কনফিগারেশন (.env Configuration)
+সার্ভারে `.env` ফাইলটি এডিট করুন এবং নিচের পরিবর্তনগুলো করুন:
+
+```env
+APP_NAME=GoldeneyeLeo
+APP_ENV=production
+APP_DEBUG=false
+APP_URL=https://your-domain.com
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=আপনার_লাইভ_ডাটাবেস_নাম
+DB_USERNAME=আপনার_লাইভ_ডাটাবেস_ইউজারনেম
+DB_PASSWORD=আপনার_লাইভ_ডাটাবেস_পাসওয়ার্ড
+```
+
+## ধাপ ৪: স্টোরেজ লিংক (Storage Link)
+আপনার সাইটে যদি ইমেজ না দেখায়, তবে `public/storage` লিংকটি ঠিক করতে হবে।
+১. সার্ভারের `public` ফোল্ডারে গিয়ে `storage` ফোল্ডারটি ডিলিট করুন (যদি থাকে)।
+২. cPanel-এ `Cron Jobs` বা টার্মিনাল ব্যবহার করে নিচের কমান্ডটি রান করুন:
+   `php artisan storage:link`
+   অথবা, একটি রাউট তৈরি করে ব্রাউজারে হিট করতে পারেন:
+   
+   ```php
+   Route::get('/link-storage', function () {
+       Artisan::call('storage:link');
+       return 'Link Created';
+   });
+   ```
+
+## ধাপ ৫: ক্যাশ ক্লিয়ার (Cache Clear)
+সবশেষে কনফিগারেশন ক্যাশ ক্লিয়ার করতে পারেন:
+`php artisan optimize:clear`
