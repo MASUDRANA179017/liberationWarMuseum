@@ -123,12 +123,12 @@
                     </a>
                 </li>
 
-                <li class="nav-item {{ Route::currentRouteName() == 'admin.estimations.index' ? 'active' : '' }}">
+                {{-- <li class="nav-item {{ Route::currentRouteName() == 'admin.estimations.index' ? 'active' : '' }}">
                     <a href="{{ route('admin.estimations.index') }}">
                         <i class='bx bx-calculator'></i>
                         <span class="sub-item">Estimation</span>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item {{ Request::routeIs('exhibition.category', 'exhibition.index') ? 'active submenu' : '' }}">
                     <a data-bs-toggle="collapse" href="#exhibitions">
@@ -174,7 +174,7 @@
                 </a>
                 </li>
                 --}}
-                <li class="nav-item {{ Request::routeIs('management.body.index', 'member.index') ? 'active submenu' : '' }}">
+                {{-- <li class="nav-item {{ Request::routeIs('management.body.index', 'member.index') ? 'active submenu' : '' }}">
                     <a data-bs-toggle="collapse" href="#power_house_team">
                         <i class='bx bxs-user-account'></i>
                         <span class="sub-item">Team</span>
@@ -196,7 +196,7 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
 
 
                 <li class="nav-item {{ Request::routeIs('faq_main.index', 'faq') ? 'active submenu' : '' }}">
@@ -272,12 +272,12 @@
                     </a>
                 </li>
 
-                <li class="nav-item {{ Route::currentRouteName() == 'career.index' ? 'active' : '' }}">
+                {{-- <li class="nav-item {{ Route::currentRouteName() == 'career.index' ? 'active' : '' }}">
                     <a href="{{ route('career.index') }}">
                         <i class='bx bxs-briefcase'></i>
                         <p>Career Opprotunity</p>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item submenu {{ Route::is('album.index') ? 'active' : '' }}">
                     <a data-bs-toggle="collapse" href="#gallery">
@@ -286,7 +286,7 @@
                         <span class="caret"></span>
                     </a>
                     <div class="collapse {{ Route::is('album.index') ? 'show' : '' }}" id="gallery">
-                        <ul class="nav nav-collapse ">
+                        <ul class="nav nav-collapse">
                             <li class="{{ Route::is('album.index') ? 'active' : '' }}"><a href="{{ route('album.index') }}"><span class="sub-item">Album</span></a></li>
                         </ul>
                     </div>
@@ -346,18 +346,18 @@
                     </a>
                 </li>
                 @endcan
-                <li class="nav-item {{ Route::is('privacy-policy') ? 'active' : '' }}">
+                {{-- <li class="nav-item {{ Route::is('privacy-policy') ? 'active' : '' }}">
                     <a href="{{ route('privacy-policy') }}">
                         <i class='bx bx-shield'></i>
                         <p>Policy and Privacy</p>
                     </a>
-                </li>
-                <li class="nav-item {{ Route::is('terms-and-conditions') ? 'active' : '' }}">
+                </li> --}}
+                {{-- <li class="nav-item {{ Route::is('terms-and-conditions') ? 'active' : '' }}">
                     <a href="{{ route('terms-and-conditions') }}">
                         <i class='bx bx-shield-quarter'></i>
                         <p>Terms and Conditions</p>
                     </a>
-                </li>
+                </li> --}}
 
             </ul>
         </div>
