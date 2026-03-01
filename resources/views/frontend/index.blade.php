@@ -134,7 +134,8 @@
                         <div class="content">
                             <div class="award__content">
                                 <h5 class="mb-3 text-center text-white title-animation fs-22 fw-700 lh-1">
-                                    <a href="{{ $detailsRoute }}" class="text-white">{{ $exhibition->exhibition_title }}</a>
+
+                                    <a href="{{$detailsRoute }}" class="text-white">{{ Str::limit($exhibition->exhibition_title, 20, '...') }}</a>
                                 </h5>
 
                                 @if($exhibition->director_name)
@@ -254,7 +255,7 @@
 
                     <div class="property-single-content">
                         <h4 class="title-animation">
-                            <a href="{{ $detailsRoute }}">{{ $exhibition->exhibition_title }}</a>
+                            <a href="{{ $detailsRoute }}">{{ Str::limit($exhibition->exhibition_title, 30, '...')  }}</a>
                         </h4>
                     </div>
 
