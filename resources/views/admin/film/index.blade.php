@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Film')
+@section('title','Service')
 @section('content')
 <div class="container">
     <div class="page-inner">
@@ -8,8 +8,8 @@
                 <div class="card card-round">
                     <div class="card-header project-details-card-header">
                         <div class="d-flex align-items-center">
-                            <h4 class="project-details-card-header-title"><i class='bx bx-message-alt-edit bx-tada'></i> Film</h4>
-                            <a href="#" class="purchase-button ms-auto" data-bs-toggle="modal" data-bs-target="#create-film-modal"><i class='bx bx-message-square-add bx-tada'></i> Add New Film</a>
+                            <h4 class="project-details-card-header-title"><i class='bx bx-message-alt-edit bx-tada'></i> Service</h4>
+                            <a href="#" class="purchase-button ms-auto" data-bs-toggle="modal" data-bs-target="#create-film-modal"><i class='bx bx-message-square-add bx-tada'></i> Add New Service</a>
                         </div>
                     </div>
                     <!--create film modal-->
@@ -24,7 +24,7 @@
                                             <thead class="">
                                                 <tr role="row">
                                                     <th>Sl</th>
-                                                    <th>Film</th>
+                                                    <th>Service</th>
                                                     <!-- <th>Details</th>
                                         <th>Key Features</th> -->
                                                     <th>Status</th>

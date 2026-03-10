@@ -119,7 +119,7 @@
                 <li class="nav-item {{ Route::currentRouteName() == 'film.index' ? 'active' : '' }}">
                     <a href="{{ route('film.index') }}">
                         <i class='bx bxs-video'></i>
-                        <span class="sub-item">Films</span>
+                        <span class="sub-item">Services</span>
                     </a>
                 </li>
 
@@ -133,7 +133,7 @@
                 <li class="nav-item {{ Request::routeIs('exhibition.category', 'exhibition.index') ? 'active submenu' : '' }}">
                     <a data-bs-toggle="collapse" href="#exhibitions">
                         <i class='bx bx-briefcase'></i>
-                        <span class="sub-item">Exhibitions</span>
+                        <span class="sub-item">Products</span>
                         <span class="caret"></span>
                     </a>
                     <div class="collapse {{ Request::routeIs('exhibition.category', 'exhibition.index') ? 'show' : '' }}" id="exhibitions">
@@ -141,7 +141,7 @@
                             <li class="{{ Route::currentRouteName() == 'exhibition.index' ? 'active' : '' }}">
                                 <a href="{{ route('exhibition.index') }}">
                                     <i class='bx bx-list-ul'></i>
-                                    <span class="sub-item">Exhibition</span>
+                                    <span class="sub-item">Product</span>
                                 </a>
                             </li>
                             <li class="{{ Route::currentRouteName() == 'exhibition.category' ? 'active' : '' }}">

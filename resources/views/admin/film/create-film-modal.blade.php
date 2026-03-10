@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="project-details-card-header-title"><i class="bx bx-user-pin bx-tada bx-flip-horizontal"></i>
-                    Create Film</h4>
+                    Create Service</h4>
                 <button type="button" class="btn-close me-1" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('film.store') }}" method="POST" enctype="multipart/form-data">
@@ -14,9 +14,9 @@
 
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
-                                    <label for="film_name">Film Name <span class="text-danger"> *</span></label>
+                                    <label for="film_name">Service Name <span class="text-danger"> *</span></label>
                                     <input type="text" class="form-control custom-input" id="film_name" name="film_name"
-                                        placeholder="Film Name" required>
+                                        placeholder="Service Name" required>
                                 </div>
                             </div>
                             <div class="col-md-6 col-sm-12">

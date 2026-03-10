@@ -192,7 +192,7 @@
                             <!--</div>-->
 
                             <div class="col-md-6">
-                                <label class="form-label">Film</label>
+                                <label class="form-label">Service</label>
                                 <select id="estFilm" class="form-select">
                                     <option value="" disabled selected>---Please Select---</option>
 
@@ -210,9 +210,9 @@
                             <!--</div>-->
 
                             <div class="col-md-6">
-                                <label class="form-label">Film Type</label>
+                                <label class="form-label">Service Type</label>
                                 <select id="serviceTypeSelect" class="form-select">
-                                    <option value="" disabled selected>---Select Film First---</option>
+                                    <option value="" disabled selected>---Select Service First---</option>
                                 </select>
                             </div>
 
@@ -328,7 +328,7 @@
     function loadServiceTypes(serviceId, selectedType = null) {
         const $sel = $('#serviceTypeSelect');
         if (!serviceId) {
-            $sel.html(`<option value="" disabled selected>---Select Film First---</option>`);
+            $sel.html(`<option value="" disabled selected>---Select Service First---</option>`);
             return;
         }
         $sel.html(`<option value="">Loading...</option>`);
@@ -338,7 +338,7 @@
         $.get(url)
             .done(res => {
                 const types = res.types || [];
-                $sel.empty().append(`<option value="">Select film type</option>`);
+                $sel.empty().append(`<option value="">Select service type</option>`);
                 if (types.length) {
                     types.forEach(t => $sel.append(`<option value="${t}">${t}</option>`));
                     if (selectedType) $sel.val(selectedType);
@@ -357,7 +357,7 @@
 
         if (!film_id) {
             setResult({
-                error: 'Select a film.'
+                error: 'Select a service.'
             });
             return;
         }
@@ -407,7 +407,7 @@
 
         $('#btnResetEst').on('click', () => {
             $('#priceEstimatorForm')[0].reset();
-            $('#serviceTypeSelect').html(`<option value="" disabled selected>---Select Film First---</option>`);
+            $('#serviceTypeSelect').html(`<option value="" disabled selected>---Select Service First---</option>`);
             setResult({
                 total: 0
             });

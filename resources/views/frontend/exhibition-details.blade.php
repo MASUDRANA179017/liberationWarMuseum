@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title','Exhibition Details')
+@section('title','Product Details')
 @section('content')
 <style>
     .product-card {
@@ -39,7 +39,7 @@
         <div class="row">
             <div class="text-center common-banner__content">
                 <span class="sub-title-main"><i class="icon-donation"></i> {{$setting->company_name}}</span>
-                <h2 class="title-animation">Exhibitions</h2>
+                <h2 class="title-animation">Products</h2>
             </div>
         </div>
     </div>
@@ -61,7 +61,7 @@
     <div class="container">
         <div class="mb-3 row">
             <div class="col-12 d-flex justify-content-end">
-                <a href="{{route('exhibition.page')}}" aria-label="Discover Our Expertise" title="Discover Our Expertise" class="mt-4 apece-primary-button"><i class="fa-solid fa-arrow-left"></i>View All Exhibitions</a>
+                <a href="{{route('exhibition.page')}}" aria-label="Discover Our Expertise" title="Discover Our Expertise" class="mt-4 apece-primary-button"><i class="fa-solid fa-arrow-left"></i>View All Products</a>
             </div>
         </div>
 
@@ -76,7 +76,7 @@
                         <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
                             <img src="{{ asset('storage/' . $image->image) }}"
                                 class="d-block w-100 img-fluid"
-                                alt="Exhibition Image {{ $key+1 }}"
+                                alt="Product Image {{ $key+1 }}"
                                 style="aspect-ratio: 1 / 1; object-fit: cover;">
                         </div>
                         @endforeach

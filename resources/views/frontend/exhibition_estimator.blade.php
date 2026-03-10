@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title','Exhibition Estimator')
+@section('title','Product Estimator')
 @section('content')
 <!-- Banner Section -->
 <section class="common-banner">
@@ -37,7 +37,7 @@
         
         <div class="col-md-7 d-flex">
             <div class="form-container flex-grow-1">
-                <h2 class="project-title">EXHIBITION ESTIMATOR</h2>
+                <h2 class="project-title">PRODUCT ESTIMATOR</h2>
                 
                 <div class="button-group">
                     <a href="tel:+8801700000000" class="contact-btn call-btn">
@@ -50,14 +50,14 @@
                 
                 <form>
                     <div class="form-group">
-                        <label for="exhibition-size">Exhibition Size</label>
-                        <input type="text" class="form-control" id="exhibition-size" placeholder="ENTER YOUR EXHIBITION SIZE (IN SQ. FT)">
+                        <label for="exhibition-size">Product Size</label>
+                        <input type="text" class="form-control" id="exhibition-size" placeholder="ENTER YOUR PRODUCT SIZE (IN SQ. FT)">
                     </div>
                     
                     <div class="form-group">
-                        <label for="film">Film</label>
+                        <label for="film">Service</label>
                         <select class="form-select" id="film">
-                            <option selected disabled>SELECT YOUR REQUIRED FILM</option>
+                            <option selected disabled>SELECT YOUR REQUIRED SERVICE</option>
                             @foreach($films as $film)
                                 <option value="{{ $film->id }}">{{ $film->film_name }}</option>
                             @endforeach
@@ -72,13 +72,13 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="cost-per-sq-ft">Exhibition Cost Per Sq. Ft.</label>
+                        <label for="cost-per-sq-ft">Product Cost Per Sq. Ft.</label>
                         <input type="text" class="form-control" id="cost-per-sq-ft" placeholder="SELECT SERVICE AND PRODUCT FIRST, COST WILL GENERATE AUTOMATICALLY" disabled>
                     </div>
                     
                     <div class="form-group">
-                        <label for="total-cost">Total Exhibition Cost</label>
-                        <input type="text" class="form-control" id="total-cost" placeholder="ENTER YOUR EXHIBITION SIZE (IN SQ. FT)" disabled>
+                        <label for="total-cost">Total Product Cost</label>
+                        <input type="text" class="form-control" id="total-cost" placeholder="ENTER YOUR PRODUCT SIZE (IN SQ. FT)" disabled>
                     </div>
                 </form>
                 

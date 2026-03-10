@@ -305,7 +305,7 @@
          <div class="row">
             <div class="col-12">
                <div class="main-header__menu-box">
-                  <nav class="navbar p-0">
+                  <nav class="p-0 navbar">
                      <div class="navbar-logo">
                         <a href="/">
                            <img src="{{ asset('storage/'.$setting->logo_dark) }}" alt="IEET BD Logo" height="50">
@@ -318,17 +318,17 @@
                                  <li class="navbar__item nav-fade current">
                                     <a href="{{route('home.page')}}">Home</a>
                                  </li>
-                                 <li class="navbar__item  nav-fade">
+                                 <li class="navbar__item nav-fade">
                                     <a href="{{route('about-us.page')}}">About Us</a>
                                  </li>
-                                 <li class="navbar__item  nav-fade">
-                                    <a href="{{route('film.page')}}">Films</a>
+                                 <li class="navbar__item nav-fade">
+                                    <a href="{{route('film.page')}}">Services</a>
                                  </li>
                                  <li class="navbar__item nav-fade">
                                     <a href="{{route('product.page')}}">Performances</a>
                                  </li>
                                  <li class="navbar__item nav-fade">
-                                    <a href="{{route('exhibition.page')}}">Exhibitions</a>
+                                    <a href="{{route('exhibition.page')}}">Products</a>
                                  </li>
                                  <li class="navbar__item nav-fade">
                                     <a href="{{route('gallery.page')}}">Archives</a>
@@ -344,16 +344,7 @@
 
                            </div>
                         </div>
-                        <!--<div class="contact-btn">-->
-                        <!--   <div class="contact-icon">-->
-                        <!--      <span><img src="assets/images/icon/telk-eight-icon.svg" alt="icon"></span>-->
-                        <!--   </div>-->
-                        <!--   <div class="contact-content">-->
-                        <!--      <p>Call us any time:</p>-->
-                        <!--      <a href="tel:{{$setting->contact_number}}">{{$setting->contact_number}}</a>-->
-                        <!--   </div>-->
-                        <!--</div>-->
-                        
+
                         <button class="open-offcanvas-nav d-flex d-xl-none" aria-label="toggle mobile menu"
                            title="open offcanvas menu">
                            <span class="icon-bar top-bar"></span>
@@ -381,7 +372,7 @@
             </div>
             <div class="mobile-menu__list"></div>
             <div class="mobile-menu__cta nav-fade d-block d-md-none">
-               <a href="donate-us.html" class="btn--primary ">Donate Now <i class="fa-solid fa-arrow-right"></i></a>
+               <a href="donate-us.html" class="btn--primary">Donate Now <i class="fa-solid fa-arrow-right"></i></a>
             </div>
             <div class="mobile-menu__social social nav-fade">
                <a href="https://www.facebook.com/" target="_blank" aria-label="share us on facebook" title="facebook">
@@ -550,7 +541,7 @@
             <div class="totals">
                <div class="subtotal">
                   <span class="label">Subtotal:</span>
-                  <span class="amount ">
+                  <span class="amount">
                      $
                      <span class="total-price">0.00</span>
                   </span>
@@ -575,13 +566,13 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body">
-                  <div class="card-body p-0">
+                  <div class="p-0 card-body">
                      <div class="tab-area">
                         <!--Company Setting TAB-->
                         <div class="tab-box current d-flex" data-tab="tab-1">
                            <div class="tab-icon-box"><i class='bx bx-transfer-alt'></i></div>
                            <div class="px-2">
-                              <h6 class="title-lg fs-18 lh-1 mb-1">Membership Fee</h6>
+                              <h6 class="mb-1 title-lg fs-18 lh-1">Membership Fee</h6>
                               <span class="sub-title-lg">Pay your membership fee</span>
                            </div>
                         </div>
@@ -589,7 +580,7 @@
                         <div class="tab-box d-flex" data-tab="tab-2">
                            <div class="tab-icon-box"><i class='bx bx-transfer-alt'></i></div>
                            <div class="px-2">
-                              <h6 class="title-lg fs-18 lh-1 mb-1">Pay Zakat</h6>
+                              <h6 class="mb-1 title-lg fs-18 lh-1">Pay Zakat</h6>
                               <span class="sub-title-lg">Contribute your Zakat</span>
                            </div>
                         </div>
@@ -597,18 +588,18 @@
                         <div class="tab-box d-flex" data-tab="tab-3">
                            <div class="tab-icon-box"><i class='bx bx-transfer-alt'></i></div>
                            <div class="px-2">
-                              <h6 class="title-lg fs-18 lh-1 mb-1">Donation</h6>
+                              <h6 class="mb-1 title-lg fs-18 lh-1">Donation</h6>
                               <span class="sub-title-lg">Support our causes</span>
                            </div>
                         </div>
                      </div>
-                     <div class="tab-contents-list main-tab-list mt-4">
+                     <div class="mt-4 tab-contents-list main-tab-list">
                         <div id="tab-1" class="tab-contents current">
                            <div class="card">
-                              <div class="card-header border-0 bg-white p-3 pt-0 pb-0">
-                                 <h2 class="m-0 title-animation fs-20 w-600 text-center border-bottom">Membership Fee Form</h2>
+                              <div class="p-3 pt-0 pb-0 bg-white border-0 card-header">
+                                 <h2 class="m-0 text-center title-animation fs-20 w-600 border-bottom">Membership Fee Form</h2>
                               </div>
-                              <div class="card-body pt-0 pb-2">
+                              <div class="pt-0 pb-2 card-body">
                                  <form class="app-form" action="payment.php" method="POST">
                                     <input type="hidden" name="payment_type" value="Membership Fee">
                                     <div class="row">
@@ -653,17 +644,17 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="common-fields mt-3"></div>
+                                    <div class="mt-3 common-fields"></div>
                                  </form>
                               </div>
                            </div>
                         </div>
                         <div id="tab-2" class="tab-contents">
                            <div class="card">
-                              <div class="card-header border-0 bg-white p-3 pt-0 pb-0">
-                                 <h2 class="m-0 title-animation fs-20 w-600 text-center border-bottom">Zakat Payment Form</h2>
+                              <div class="p-3 pt-0 pb-0 bg-white border-0 card-header">
+                                 <h2 class="m-0 text-center title-animation fs-20 w-600 border-bottom">Zakat Payment Form</h2>
                               </div>
-                              <div class="card-body pt-0 pb-2">
+                              <div class="pt-0 pb-2 card-body">
                                  <form class="app-form" action="payment.php" method="POST">
                                     <input type="hidden" name="payment_type" value="Zakat">
                                     <div class="row">
@@ -692,17 +683,17 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="common-fields mt-3"></div>
+                                    <div class="mt-3 common-fields"></div>
                                  </form>
                               </div>
                            </div>
                         </div>
                         <div id="tab-3" class="tab-contents">
                            <div class="card">
-                              <div class="card-header border-0 bg-white p-3 pt-0 pb-0">
-                                 <h2 class="m-0 title-animation fs-20 w-600 text-center border-bottom">Donation Form</h2>
+                              <div class="p-3 pt-0 pb-0 bg-white border-0 card-header">
+                                 <h2 class="m-0 text-center title-animation fs-20 w-600 border-bottom">Donation Form</h2>
                               </div>
-                              <div class="card-body pt-0 pb-2">
+                              <div class="pt-0 pb-2 card-body">
                                  <form class="app-form" action="payment.php" method="POST">
                                     <input type="hidden" name="payment_type" value="Donation">
                                     <div class="row">
@@ -731,7 +722,7 @@
                                           </div>
                                        </div>
                                     </div>
-                                    <div class="common-fields mt-3"></div>
+                                    <div class="mt-3 common-fields"></div>
                                  </form>
                               </div>
                            </div>
@@ -747,13 +738,13 @@
       @yield('content')
 
       <!-- ==== footer start ==== -->
-      <footer class="footer-two ff-footer pt-0">
+      <footer class="pt-0 footer-two ff-footer">
 
-         <div class="footer-two__copyright mt-0">
+         <div class="mt-0 footer-two__copyright">
             <div class="container">
                <div class="row align-items-center gutter-12">
                   <div class="col-12 col-lg-6">
-                     <div class="footer-two__copyright-inner text-center text-lg-start">
+                     <div class="text-center footer-two__copyright-inner text-lg-start">
                         <p class="m-0">Copyright © <span id="copyrightYear">{{ date('Y') }}</span>
                            <a href="/">{{ $setting->company_name ?? '' }}</a>.
                            All Rights Reserved. Developed By <a href="https://qbit-tech.com/" target="_blank">QBit Tech</a>
@@ -868,7 +859,7 @@
             const scrollBtn = document.querySelector('.progress-wrap');
             const whatsappBtn = document.querySelector('.whatsapp-float');
 
-            //  page scroll 
+            //  page scroll
             if (window.scrollY > 200) {
                scrollBtn.classList.add('active'); // scroll button visible
                whatsappBtn.classList.add('move-up'); // whatsapp up

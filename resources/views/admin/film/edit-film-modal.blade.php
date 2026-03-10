@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="project-details-card-header-title">
-                    <i class="bx bx-user-pin bx-tada bx-flip-horizontal"></i> Edit Film
+                    <i class="bx bx-user-pin bx-tada bx-flip-horizontal"></i> Edit Service
                 </h4>
                 <button type="button" class="btn-close me-1" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
@@ -17,7 +17,7 @@
 
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
-                                    <label for="edit_film_name">Film Name <span class="text-danger">*</span></label>
+                                    <label for="edit_film_name">Service Name <span class="text-danger">*</span></label>
                                     <input type="text" class="form-control custom-input" id="edit_film_name" name="film_name" required>
                                 </div>
                             </div>

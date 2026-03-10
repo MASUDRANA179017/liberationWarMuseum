@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="exhibition-details-card-header-title"><i class="bx bx-user-pin bx-tada bx-flip-horizontal"></i>
-                    Create Exhibition Category</h4>
+                    Create Product Category</h4>
                 <button type="button" class="btn-close me-1" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('exhibition-category.store') }}" method="POST" enctype="multipart/form-data">

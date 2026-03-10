@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title','Film Details')
+@section('title','Service Details')
 @section('content')
 <style>
     .project-card {
@@ -453,7 +453,7 @@
 <div class="modal-overlay" id="estimateModalOverlay">
     <div class="estimate-modal">
         <div class="estimate-modal-header">
-            <h2 id="modalFilmName">{{$film->film_name ?? 'Film'}}</h2>
+            <h2 id="modalFilmName">{{$film->film_name ?? 'Service'}}</h2>
             <button class="close-btn" onclick="closeEstimateModal()">&times;</button>
         </div>
         <div class="estimate-modal-body">

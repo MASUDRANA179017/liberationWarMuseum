@@ -46,17 +46,17 @@
 
 <section class="cta-section-two" id="aboutSection">
    <div class="container">
-      <div class="row justify-content-center mt-5">
+      <div class="mt-5 row justify-content-center">
          <div class="col-12">
-            <div class="section__header text-center mt-5 mb-5" data-aos="fade-up" data-aos-duration="1000">
+            <div class="mt-5 mb-5 text-center section__header" data-aos="fade-up" data-aos-duration="1000">
 
 
 
-               <h1 class="title-animation text-white fs-40">
+               <h1 class="text-white title-animation fs-40">
                   <span>Liberation War Museum</span>
                </h1>
 
-               <p class="text-white text-center fs-16 mt-3">
+               <p class="mt-3 text-center text-white fs-16">
                   Journey of Sultana's Dream in Bangladesh
                </p>
 
@@ -85,7 +85,7 @@
          <div class="col-12 col-lg-5 col-xxl-5 d-none d-lg-block">
             <div class="difference-two__thumb-wrapper">
                <div class="difference-two__thumb">
-                  <div class="thumb-lg mb-0" data-aos="fade-right" data-aos-duration="1000">
+                  <div class="mb-0 thumb-lg" data-aos="fade-right" data-aos-duration="1000">
                      <img src="{{ asset('storage/'.$about->image) }}" alt="{{ $setting->company_name ?? 'About Us' }}">
                   </div>
                </div>
@@ -108,7 +108,7 @@
                                     $cleanDescription = strip_tags($about->description, $allowedTags);
                                     @endphp
 
-                                    <div class="about-description mb-4">
+                                    <div class="mb-4 about-description">
                                        {!! \Illuminate\Support\Str::limit($cleanDescription, 700, '...') !!}
                                     </div>
                                     @php
@@ -121,11 +121,11 @@
 </section>
 
 <!-- Team area end -->
-{{-- <div class="product-tab difference-two pb-120">
+<div class="product-tab difference-two pb-120">
    <div class="container">
       <div class="row">
-         <div class="col-10 m-auto">
-            <div class="difference-two__inner cta mt-0">
+         <div class="m-auto col-10">
+            <div class="mt-0 difference-two__inner cta">
                <div class="difference-two__inner-content">
                   <div class="difference-two__tab">
                      <div class="difference-two__tab-btns">
@@ -167,11 +167,11 @@
          </div>
       </div>
    </div>
-</div> --}}
-{{-- <!--Why Choose-->
+</div>
+<!--Why Choose-->
 <section class="ff-service">
    <div class="container">
-      <div class="section__header text-center aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
+      <div class="text-center section__header aos-init aos-animate" data-aos="fade-up" data-aos-duration="1000">
          <span class="sub-title-main text-success-2">The IEET Advantage</span>
          <h2 class="text-white title-animation">Why Choose IEET Ltd.?</h2>
       </div>
@@ -230,11 +230,11 @@
 <!-- Client Testimonials Start -->
 <section class="testimonial-section pt-120 pb-120">
     <div class="container">
-        <div class="section__header text-center" data-aos="fade-up" data-aos-duration="1000">
+        <div class="text-center section__header" data-aos="fade-up" data-aos-duration="1000">
             <span class="sub-title-main">Client Feedback</span>
             <h2 class="title-animation">What Our Clients Say</h2>
         </div>
-        <div class="swiper testimonial-slider mt-5">
+        <div class="mt-5 swiper testimonial-slider">
             <div class="swiper-wrapper">
                 <!-- Testimonial 1 -->
                 <div class="swiper-slide">
@@ -273,13 +273,13 @@
 <!-- Current Committee -->
 <section class="team ff-team pb-120" id="teamSection">
    <div class="container">
-      <div class="section__header text-center" data-aos="fade-up" data-aos-duration="1000">
+      <div class="text-center section__header" data-aos="fade-up" data-aos-duration="1000">
          <span class="sub-title-main"><i class="fa-solid fa-users"></i>Meet Our Experienced Team</span>
-         <h2 class="title-animation mt-0"><span>Managing </span>Body</h2>
+         <h2 class="mt-0 title-animation"><span>Managing </span>Body</h2>
       </div>
       <div class="row">
                <div class="col-xl-12">
-                  <div class="team-eight-slide overflow-hidden position-relative" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                  <div class="overflow-hidden team-eight-slide position-relative" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                      <div class="team-eight-active swiper-container">
                         <div class="swiper-wrapper team-eight-titming">
 
@@ -299,7 +299,7 @@
                                     </div>
                                  </div>
                               </div>
-                              <div class="team-eight-content text-center">
+                              <div class="text-center team-eight-content">
                            <h4 class="team-eight-title"><a href="#" data-bs-toggle="modal" data-bs-target="#clientDetailsModal">Md. Firoz Uddin</a></h4>
                            <p class="team-eight-paragraph">Managing Director</p>
                         </div>
@@ -321,7 +321,7 @@
                                     </div>
                                  </div>
                               </div>
-                              <div class="team-eight-content text-center">
+                              <div class="text-center team-eight-content">
                            <h4 class="team-eight-title"><a href="#" data-bs-toggle="modal" data-bs-target="#clientDetailsModal">Zulfikar Ali</a></h4>
                            <p class="team-eight-paragraph">Chairman</p>
                         </div>
@@ -343,7 +343,7 @@
                                     </div>
                                  </div>
                               </div>
-                              <div class="team-eight-content text-center">
+                              <div class="text-center team-eight-content">
                            <h4 class="team-eight-title"><a href="#" data-bs-toggle="modal" data-bs-target="#clientDetailsModal">Engr. Shariful Islam</a></h4>
                            <p class="team-eight-paragraph">Chief Executive Officer</p>
                         </div>
@@ -365,7 +365,7 @@
                                     </div>
                                  </div>
                               </div>
-                              <div class="team-eight-content text-center">
+                              <div class="text-center team-eight-content">
                            <h4 class="team-eight-title"><a href="#" data-bs-toggle="modal" data-bs-target="#clientDetailsModal">Md. Erfan Ahmed</a></h4>
                            <p class="team-eight-paragraph">General Manager</p>
                         </div>
@@ -387,7 +387,7 @@
                                     </div>
                                  </div>
                               </div>
-                              <div class="team-eight-content text-center">
+                              <div class="text-center team-eight-content">
                            <h4 class="team-eight-title"><a href="#" data-bs-toggle="modal" data-bs-target="#clientDetailsModal">Md. Erfan Ahmed</a></h4>
                            <p class="team-eight-paragraph">General Manager</p>
                         </div>
@@ -412,7 +412,7 @@
             </div>
    </div>
 </section>
-<!-- Current Committee --> --}}
+<!-- Current Committee -->
 
 
 @endsection

@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Exhibition')
+@section('title','Product')
 @section('content')
 <div class="container">
     <div class="page-inner">
@@ -9,11 +9,11 @@
                 <div class="card card-round">
                     <div class="card-header exhibition-details-card-header">
                         <div class="d-flex align-items-center">
-                            <h4 class="exhibition-details-card-header-title"><i class='bx bx-carousel bx-tada'></i> Exhibitions
+                            <h4 class="exhibition-details-card-header-title"><i class='bx bx-carousel bx-tada'></i> Products
                             </h4>
                             <a href="#" class="purchase-button ms-auto" data-bs-toggle="modal"
                                 data-bs-target="#create-exhibition-modal"><i class='bx bx-message-square-add bx-tada'></i>
-                                Add New Exhibition</a>
+                                Add New Product</a>
                         </div>
                     </div>
                     <!--create exhibition modal-->
@@ -29,7 +29,7 @@
                                             aria-describedby="add-row_info">
                                             <thead class="">
                                                 <tr role="row">
-                                                    <th>Exhibition Title</th>
+                                                    <th>Product Title</th>
                                                     <th>Image</th>
                                                     <th>Venue Name</th>
                                                     <th>Status</th>

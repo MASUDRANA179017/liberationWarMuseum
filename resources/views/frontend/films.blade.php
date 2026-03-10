@@ -1,6 +1,23 @@
 @extends('layouts.frontend')
-@section('title','All Films')
+@section('title','All Services')
 @section('content')
+
+<style>
+    .property-list-img-area .img1.image-anime {
+        height: 250px;
+        overflow: hidden;
+        background-color: #1a1a1a; /* fallback color */
+        position: relative;
+    }
+
+    .property-list-img-area .img1.image-anime img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+</style>
 
 <section class="cta-section-two" id="filmSection">
     <div class="container">
@@ -9,7 +26,7 @@
             <div class="col-12">
                 <div class="mt-5 mb-5 text-center section__header" data-aos="fade-up" data-aos-duration="1000">
                     <span class="text-white sub-title-main">
-                        <i class="icon-donation me-1"></i> Films
+                        <i class="icon-donation me-1"></i> Services
                     </span>
                     <h1 class="text-white title-animation fs-40">
                         <span>Filmmaking Workshop on</span>
@@ -39,12 +56,12 @@
                     <div class="property-list-img-area position-relative">
                         <a href="{{ $detailsRoute }}">
                             <div class="img1 image-anime">
-                                <img src="{{ $imagePath }}" alt="{{ $film->film_name }}" style="width: 100%; height: 250px; object-fit: cover;">
+                                <img src="{{ $imagePath }}" alt="{{ $film->film_name }}">
                             </div>
                         </a>
 
                         <div class="top-0 p-2 position-absolute start-0">
-                            <span class="badge bg-primary me-1">Film</span>
+                            <span class="badge bg-primary me-1">Service</span>
                         </div>
                     </div>
 
@@ -68,7 +85,7 @@
             @endforeach
             @else
             <div class="py-5 text-center col-12">
-                <p class="text-white">No films found at the moment.</p>
+                <p class="text-white">No services found at the moment.</p>
             </div>
             @endif
         </div>
@@ -90,7 +107,7 @@
         @endphp
 
         @if ($coverPhoto)
-        <img src="{{ asset('storage/' . $coverPhoto->cover_image) }}" alt="Film Cover" class="parallax-image">
+        <img src="{{ asset('storage/' . $coverPhoto->cover_image) }}" alt="Service Cover" class="parallax-image">
         @else
         <img src="{{ asset('assets/images/page-bg.jpg') }}" alt="Default Cover" class="parallax-image">
         @endif

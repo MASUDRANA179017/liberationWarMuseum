@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="exhibition-details-card-header-title"><i class="bx bx-user-pin bx-tada bx-flip-horizontal"></i>
-                    Create Exhibition</h4>
+                    Create Product</h4>
                 <button type="button" class="btn-close me-1" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="{{ route('exhibition.store') }}" method="POST" enctype="multipart/form-data">
@@ -14,9 +14,9 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="exhibition_title">Exhibition Title<span class="text-danger"> *</span></label>
+                                    <label for="exhibition_title">Product Title<span class="text-danger"> *</span></label>
                                     <input type="text" class="form-control custom-input" id="exhibition_title" name="exhibition_title"
-                                        placeholder="Exhibition Title" required>
+                                        placeholder="Product Title" required>
                                 </div>
                             </div>
                             <div class="col-sm-12">

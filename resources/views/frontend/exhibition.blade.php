@@ -1,5 +1,5 @@
 @extends('layouts.frontend')
-@section('title','Exhibitions')
+@section('title','Products')
 @section('content')
 <style>
     .event-eight-thumb {
@@ -52,7 +52,7 @@
         <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="mb-0 d-flex justify-content-between align-items-center mb-5">
             <div class="mb-0 w-30 section-eight-wrapper">
                 <h6 class="sub-title-main"><i class="fa-solid fa-briefcase"></i> Our Portfolio</h6>
-                <h2 class="mb-0 title-animation">Our Exhibition</h2>
+                <h2 class="mb-0 title-animation">Our Products</h2>
             </div>
         </div>
 

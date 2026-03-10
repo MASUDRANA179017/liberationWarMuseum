@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4><i class="bx bx-edit bx-tada"></i> Edit Exhibition</h4>
+                <h4><i class="bx bx-edit bx-tada"></i> Edit Product</h4>
                 <button type="button" class="btn-close me-1" data-bs-dismiss="modal"></button>
             </div>
             <form id="editExhibitionForm" method="POST" enctype="multipart/form-data">
@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label>Exhibition Title<span class="text-danger">*</span></label>
+                                <label>Product Title<span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" name="exhibition_title" id="edit_exhibition_title" required>
                             </div>
                         </div>

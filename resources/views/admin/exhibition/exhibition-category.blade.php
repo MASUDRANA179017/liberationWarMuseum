@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Exhibition-Category')
+@section('title','Product-Category')
 @section('content')
 <div class="container">
     <div class="page-inner">
@@ -9,7 +9,7 @@
                 <div class="card card-round">
                     <div class="card-header exhibition-details-card-header">
                         <div class="d-flex align-items-center">
-                            <h4 class="exhibition-details-card-header-title"><i class='bx bx-carousel bx-tada'></i> Exhibition Category
+                            <h4 class="exhibition-details-card-header-title"><i class='bx bx-carousel bx-tada'></i> Product Category
                             </h4>
                             <a href="#" class="purchase-button ms-auto" data-bs-toggle="modal"
                                 data-bs-target="#create-exhibition-category-modal"><i class='bx bx-message-square-add bx-tada'></i>
