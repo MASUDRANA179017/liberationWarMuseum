@@ -324,15 +324,15 @@
                                  <li class="navbar__item nav-fade">
                                     <a href="{{route('film.page')}}">Services</a>
                                  </li>
-                                 <li class="navbar__item nav-fade">
+                                 {{-- <li class="navbar__item nav-fade">
                                     <a href="{{route('product.page')}}">Performances</a>
-                                 </li>
+                                 </li> --}}
                                  <li class="navbar__item nav-fade">
                                     <a href="{{route('exhibition.page')}}">Products</a>
                                  </li>
-                                 <li class="navbar__item nav-fade">
+                                 {{-- <li class="navbar__item nav-fade">
                                     <a href="{{route('gallery.page')}}">Archives</a>
-                                 </li>
+                                 </li> --}}
                                  <li class="navbar__item nav-fade">
                                     <a href="{{route('news.page')}}">News</a>
                                  </li>

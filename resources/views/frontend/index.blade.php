@@ -49,6 +49,41 @@
         </div>
     </section>
 
+
+    <section class="cta-section-two cta-section-three cert-section">
+        <div class="container">
+            @if (isset($counters) && $counters->count() > 0)
+                <div class="mt-5 row">
+                    @foreach ($counters as $counter)
+                        <div class="mb-4 col-lg col-md-4 col-6">
+                            <div class="counter-item">
+
+                                <div class="icon-wrapper">
+                                    <img src="/storage/{{ $counter->counter_icon }}" alt="{{ $counter->counter_title }}"
+                                        style="width: 50px; height: 50px; object-fit: contain;">
+                                </div>
+
+                                <h3 class="mb-0 title-animation fs-30 fw-800 lh-1">
+                                    <span>{{ $counter->data_count }}{{ $counter->counter_symbol ?? '' }}</span>
+                                </h3>
+
+                                <p class="pt-1 text-center text-white fs-16 fw-600 lh-1">
+                                    {{ $counter->counter_title }}
+                                </p>
+
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            @endif
+        </div>
+
+        <div class="cta-bg">
+            <img src="{{ asset('assets/image/slider-1.jpg') }}" alt="Background" class="parallax-image">
+        </div>
+    </section>
+
+
     <section class="difference-two">
         <div class="container">
             <div class="row">
@@ -74,7 +109,10 @@
 
                         @php
                             $allowedTags = '<p><br><ul><ol><li><b><strong><i><em>';
-                            $cleanDescription = strip_tags(isset($about) ? ($about->description ?? '') : '', $allowedTags);
+                            $cleanDescription = strip_tags(
+                                isset($about) ? $about->description ?? '' : '',
+                                $allowedTags,
+                            );
                         @endphp
 
                         <div class="mb-4 about-description">
@@ -124,10 +162,10 @@
                             <div class="col-12 col-md-6 mb-4 col-lg-4 service-item {{ $index >= 6 ? 'd-none' : '' }}">
                                 <div class="award__single" data-aos="fade-up" data-aos-duration="1000">
 
-                                    <div class="thumb">
+                                    <div class="thumb h-[250px]">
                                         <a href="{{ $detailsRoute }}">
                                             <img src="{{ $imagePath }}" alt="{{ $film->film_name }}"
-                                                style="width: 100%; height: 250px; object-fit: cover; border-radius: 10px;">
+                                                style="width: 100%; height: autto; object-fit: cover; border-radius: 10px;">
                                         </a>
                                     </div>
 
@@ -186,38 +224,7 @@
 
 
 
-    <section class="cta-section-two cta-section-three cert-section">
-        <div class="container">
-            @if (isset($counters) && $counters->count() > 0)
-                <div class="mt-5 row">
-                    @foreach ($counters as $counter)
-                        <div class="mb-4 col-lg col-md-4 col-6">
-                            <div class="counter-item">
 
-                                <div class="icon-wrapper">
-                                    <img src="/storage/{{ $counter->counter_icon }}" alt="{{ $counter->counter_title }}"
-                                        style="width: 50px; height: 50px; object-fit: contain;">
-                                </div>
-
-                                <h3 class="mb-0 title-animation fs-30 fw-800 lh-1">
-                                    <span>{{ $counter->data_count }}{{ $counter->counter_symbol ?? '' }}</span>
-                                </h3>
-
-                                <p class="pt-1 text-center text-white fs-16 fw-600 lh-1">
-                                    {{ $counter->counter_title }}
-                                </p>
-
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
-        </div>
-
-        <div class="cta-bg">
-            <img src="{{ asset('assets/image/slider-1.jpg') }}" alt="Background" class="parallax-image">
-        </div>
-    </section>
 
     <section class="team ff-team">
         <div class="container">
@@ -249,9 +256,10 @@
 
                                 <div class="property-list-img-area position-relative">
                                     <a href="{{ $detailsRoute }}">
-                                        <div class="img1 image-anime">
+
+                                        <div class="thumb h-[250px] image-anime">
                                             <img src="{{ $imagePath }}" alt="{{ $exhibition->exhibition_title }}"
-                                                style="width: 100%; height: 250px; object-fit: cover;">
+                                                style="width: 100%; height: autto; object-fit: cover; border-radius: 10px;">
                                         </div>
                                     </a>
 
@@ -259,6 +267,7 @@
                                         <span class="badge bg-primary me-1">Product</span>
                                     </div>
                                 </div>
+
 
                                 <div class="property-single-content">
                                     <h4 class="title-animation">
@@ -306,6 +315,81 @@
 
         </div>
     </section>
+
+    <!-- ====== How We Work Section Start ====== -->
+    <section class="py-5 how-we-work bg-light">
+        <div class="container">
+            <div class="mb-5 row justify-content-center">
+                <div class="text-center col-lg-8">
+                    <h2 class="mb-3 title-animation fs-40 fw-700">How We Work</h2>
+                    <p class="text-center fs-16 text-muted">A simple, transparent process from concept to completion.</p>
+                </div>
+            </div>
+
+            <div class="row g-4">
+                <!-- Step 1 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="p-4 text-center border-0 shadow-sm card h-100">
+                        <div class="mb-3">
+                            <div class="mx-auto icon-box rounded-circle bg-primary d-flex align-items-center justify-content-center"
+                                 style="width: 80px; height: 80px;">
+                                <i class="text-white fa-solid fa-comments fs-2"></i>
+                            </div>
+                        </div>
+                        <h5 class="mb-2 fw-600">1. Consultation</h5>
+                        <p class="fs-14 text-muted">We listen to your ideas, goals and budget to understand your vision.</p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="p-4 text-center border-0 shadow-sm card h-100">
+                        <div class="mb-3">
+                            <div class="mx-auto icon-box rounded-circle bg-primary d-flex align-items-center justify-content-center"
+                                 style="width: 80px; height: 80px;">
+                                <i class="text-white fa-solid fa-pencil-ruler fs-2"></i>
+                            </div>
+                        </div>
+                        <h5 class="mb-2 fw-600">2. Planning & Design</h5>
+                        <p class="fs-14 text-muted">Our team crafts detailed plans, 3D renders and material boards for your approval.</p>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="p-4 text-center border-0 shadow-sm card h-100">
+                        <div class="mb-3">
+                            <div class="mx-auto icon-box rounded-circle bg-primary d-flex align-items-center justify-content-center"
+                                 style="width: 80px; height: 80px;">
+                                <i class="text-white fa-solid fa-hammer fs-2"></i>
+                            </div>
+                        </div>
+                        <h5 class="mb-2 fw-600">3. Execution</h5>
+                        <p class="fs-14 text-muted">Skilled craftsmen bring the design to life with quality materials and on-site supervision.</p>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="col-12 col-md-6 col-lg-3">
+                    <div class="p-4 text-center border-0 shadow-sm card h-100">
+                        <div class="mb-3">
+                            <div class="mx-auto icon-box rounded-circle bg-primary d-flex align-items-center justify-content-center"
+                                 style="width: 80px; height: 80px;">
+                                <i class="text-white fa-solid fa-key fs-2"></i>
+                            </div>
+                        </div>
+                        <h5 class="mb-2 fw-600">4. Handover</h5>
+                        <p class="fs-14 text-muted">Final walk-through, snag-list clearance and timely delivery of your dream space.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-5 text-center">
+                <a href="#" class="px-5 py-2 btn--primary">Start Your Project</a>
+            </div>
+        </div>
+    </section>
+    <!-- ====== How We Work Section End ====== -->
 
 
 
@@ -368,8 +452,53 @@
         </div>
     </section>
 
+    <!-- ====== Dynamic FAQ Section Start ====== -->
+    <section class="py-5 bg-white faq-section">
+        <div class="container">
+            <div class="mb-5 row justify-content-center">
+                <div class="text-center col-lg-8">
+                    <h2 class="mb-3 title-animation fs-40 fw-700">Frequently Asked Questions</h2>
+                    <p class="text-center fs-16 text-muted">Quick answers to common questions about our services.</p>
+                </div>
+            </div>
 
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="accordion" id="faqAccordion">
+                        @forelse (($questions ?? collect()) as $index => $faq)
+                            <div class="mb-3 border-0 shadow-sm accordion-item">
+                                <h2 class="accordion-header" id="faqHeading{{ $index }}">
+                                    <button class="accordion-button {{ $index === 0 ? '' : 'collapsed' }}" type="button"
+                                        data-bs-toggle="collapse" data-bs-target="#faqCollapse{{ $index }}"
+                                        aria-expanded="{{ $index === 0 ? 'true' : 'false' }}"
+                                        aria-controls="faqCollapse{{ $index }}">
+                                        {{ $faq->question }}
+                                    </button>
+                                </h2>
+                                <div id="faqCollapse{{ $index }}"
+                                    class="accordion-collapse collapse {{ $index === 0 ? 'show' : '' }}"
+                                    aria-labelledby="faqHeading{{ $index }}" data-bs-parent="#faqAccordion">
+                                    <p class="accordion-body line-height-5">
+                                        {!! $faq->answer !!}
+                                    </p>
+                                </div>
+                            </div>
+                        @empty
+                            <div class="text-center col-12">
+                                <p class="text-muted">No FAQs available at the moment.</p>
+                            </div>
+                        @endforelse
+                    </div>
+                </div>
+            </div>
 
+            <div class="mt-5 text-center">
+                <p class="mb-2 fs-14 text-muted">Still have questions?</p>
+                <a href="{{ route('contact-us.page') }}" class="px-5 py-2 btn--primary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    <!-- ====== Dynamic FAQ Section End ====== -->
 
 
 
@@ -834,8 +963,8 @@
         }
 
         /*.project-container {
-          position: relative;
-          }*/
+                  position: relative;
+                  }*/
         .project-item {
             transition: transform 0.4s, opacity 0.4s;
         }

@@ -29,7 +29,7 @@
                 <li class="nav-item {{ Route::currentRouteName() == 'dashboard' ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}">
                         <i class="fas fa-home"></i>
-                        <p>Dashboard</p>
+                        <p>Abu Sufian</p>
                     </a>
                 </li>
                 <li class="nav-item {{ Route::currentRouteName() == 'slider.index' ? 'active' : '' }}">
@@ -81,7 +81,7 @@
                     <span class="sub-item">Clients</span>
                 </a>
                 </li> --}}
-                <li class="nav-item {{ Request::routeIs('testimonial_main.index', 'testimonial') ? 'active submenu' : '' }}">
+                {{-- <li class="nav-item {{ Request::routeIs('testimonial_main.index', 'testimonial') ? 'active submenu' : '' }}">
                     <a data-bs-toggle="collapse" href="#testimonial">
                         <i class='bx bx-message-alt-edit'></i>
                         <span class="sub-item">Testimonial</span>
@@ -103,22 +103,22 @@
                             </li>
                         </ul>
                     </div>
-                </li>
+                </li> --}}
                 {{-- <li class="nav-item {{ Route::currentRouteName() == 'testimonial' ? 'active' : '' }}">
                 <a href="{{ route('testimonial') }}">
                     <i class='bx bx-message-alt-edit'></i>
                     <span class="sub-item">Testimonial</span>
                 </a>
                 </li> --}}
-                <li class="nav-item {{ Route::currentRouteName() == 'products.index' ? 'active' : '' }}">
+                {{-- <li class="nav-item {{ Route::currentRouteName() == 'products.index' ? 'active' : '' }}">
                     <a href="{{ route('products.index') }}">
                         <i class='bx bx-cube-alt'></i>
                         <span class="sub-item">Archives & Events</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item {{ Route::currentRouteName() == 'film.index' ? 'active' : '' }}">
                     <a href="{{ route('film.index') }}">
-                        <i class='bx bxs-video'></i>
+                        <i class='bx bx-cog'></i>
                         <span class="sub-item">Services</span>
                     </a>
                 </li>
