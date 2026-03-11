@@ -493,7 +493,7 @@
             </div>
 
             <div class="mt-5 text-center">
-                <p class="mb-2 fs-14 text-muted">Still have questions?</p>
+                <p class="mb-2 text-center fs-14 text-muted">Still have questions?</p>
                 <a href="{{ route('contact-us.page') }}" class="px-5 py-2 btn--primary">Contact Us</a>
             </div>
         </div>
