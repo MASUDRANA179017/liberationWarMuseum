@@ -19346,7 +19346,7 @@ font-weight: 700;
 /* Header css */
 
 .header-eight-area {
-      background: rgba(90, 14, 36, .75);
+      background: #2596be;
     backdrop-filter: blur(5px);
   box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.08);
   border-radius: 15px !important;
