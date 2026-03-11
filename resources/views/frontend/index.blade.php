@@ -137,7 +137,7 @@
                             <span>Services</span>
                         </h1>
                         <p class="mt-3 text-center text-white fs-16">
-                            Style, Perspectives & Aspiration of Sultana’s Dream
+                            Style, Perspectives & Aspiration of MINE IT
                         </p>
                     </div>
                 </div>
@@ -228,8 +228,8 @@
         <div class="container">
             <div class="text-center section-eight-wrapper" data-aos="fade-up" data-aos-duration="1000"
                 data-aos-delay="200">
-                <h6 class="sub-title-main"><i class="fa-solid fa-briefcase"></i> Art Products</h6>
-                <h2 class="title-animation">Reimaging <span>Sultana’s Dream</span></h2>
+                <h6 class="sub-title-main"><i class="fa-solid fa-briefcase"></i>Uer Products</h6>
+                <h2 class="title-animation">Reimaging <span>MINE IT</span></h2>
             </div>
 
             <div class="row">
@@ -388,10 +388,43 @@
         </div>
     </section>
     <!-- ====== How We Work Section End ====== -->
+    @if (isset($clients) && $clients->count() > 0)
+        <section class="py-5 bg-white">
+            <div class="container">
+                <div class="mb-4 row justify-content-center">
+                    <div class="text-center col-lg-8">
+                        <h2 class="mb-3 title-animation fs-40 fw-700">Our Clients</h2>
+                    </div>
+                </div>
+
+                <div class="row g-4 justify-content-center align-items-center">
+                    @foreach ($clients as $client)
+                        <div class="col-6 col-md-4 col-lg-2">
+                            <a href="{{ $client->show_url && $client->url ? $client->url : 'javascript:void(0);' }}"
+                                {{ $client->show_url && $client->url ? 'target=_blank' : '' }}
+                                class="text-decoration-none d-block">
+                                <div class="p-3 border rounded-4 bg-white shadow-sm d-flex align-items-center justify-content-center"
+                                    style="height: 90px;">
+                                    @if ($client->logo)
+                                        <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}"
+                                            style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                                    @else
+                                        <span class="text-muted">{{ $client->name }}</span>
+                                    @endif
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
 
 
 
     <!-- ==== / Testimonial section start ==== -->
+    <section class="testimonial-six-area pt-120 pb-120">
     <section class="testimonial-six-area pt-120 pb-120">
         <div class="container">
             <div class="row align-items-center testimonial-six-frist-row">

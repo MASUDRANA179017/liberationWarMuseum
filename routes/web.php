@@ -316,6 +316,7 @@ Route::middleware(['auth:admin', 'verified'])->group(function () {
     });
     Route::prefix('/dashboard')->controller(TestimonialMainController::class)->group(function () {
         Route::get('/testimonial_main', 'index')->name('testimonial_main.index');
+        Route::post('/testimonial_main/store', 'store')->name('testimonial_main.store');
         Route::get('/testimonial_main/toggle-status/{id}', 'toggleStatus')->name('testimonial_main.toggle-status');
         Route::put('/testimonial_main/update/{id}', 'update')->name('testimonial_main.update');
     });

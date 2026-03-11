@@ -21,16 +21,16 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="director_name">Venue Name<span class="text-danger"> *</span></label>
+                                    <label for="director_name">Overview<span class="text-danger"> *</span></label>
                                     <input type="text" class="form-control custom-input" id="director_name" name="director_name"
-                                        placeholder="Venue Name" required>
+                                        placeholder="Overview" required>
                                 </div>
                             </div>
 
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="synopsis">Synopsis</label>
-                                    <textarea class="form-control custom-input summernote" id="synopsis" name="synopsis" rows="4" placeholder="Synopsis"></textarea>
+                                    <label for="synopsis">Details <span class="text-danger">*</span></label>
+                                    <textarea class="form-control custom-input summernote" id="synopsis" name="synopsis" rows="4" placeholder="Details"></textarea>
                                 </div>
                             </div>
 

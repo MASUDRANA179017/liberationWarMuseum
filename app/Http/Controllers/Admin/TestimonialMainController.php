@@ -16,6 +16,24 @@ class TestimonialMainController extends Controller
         ]);
     }
 
+    public function store(Request $request)
+    {
+        $request->validate([
+            'title' => 'nullable|string|max:255',
+            'description' => 'nullable',
+            'sub_title' => 'nullable|string|max:255',
+        ]);
+
+        $action = new Testimonialmain();
+        $action->title = $request->title;
+        $action->description = $request->description;
+        $action->sub_title = $request->sub_title;
+        $action->status = true;
+        $action->save();
+
+        return redirect()->route('testimonial_main.index')->with('success', 'Main Testimonial created successfully.');
+    }
+
     public function toggleStatus($id)
     {
         $action = Testimonialmain::findOrFail($id);

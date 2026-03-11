@@ -441,7 +441,7 @@
                     <p>{{$film->text_before_price ?? ''}} <span class="sub-title-main fw-800">{{$film->price ?? ''}}</span> {{$film->text_after_price ?? ''}} </p>
 
 
-                    <h4 class="fw-bold fs-19 mb-3">Synopsis</h4>
+                    <h4 class="fw-bold fs-19 mb-3">Details</h4>
                     <p class="text-muted fs-19">{!! $film->synopsis ?? '' !!}</p>
                 </div>
             </div>

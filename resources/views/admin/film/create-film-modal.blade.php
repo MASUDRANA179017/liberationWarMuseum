@@ -1,5 +1,5 @@
 <div id="create-film-modal" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
-    <div class=" modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h4 class="project-details-card-header-title"><i class="bx bx-user-pin bx-tada bx-flip-horizontal"></i>
@@ -21,15 +21,15 @@
                             </div>
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
-                                    <label for="director_name">Venue Name</label>
+                                    <label for="director_name">Overview</label>
                                     <input type="text" class="form-control custom-input" id="director_name" name="director_name"
-                                        placeholder="Venue Name">
+                                        placeholder="Overview">
                                 </div>
                             </div>
 
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="synopsis">Synopsis <span class="text-danger">
+                                    <label for="synopsis">Details <span class="text-danger">
                                             *</span></label>
                                     <textarea type="text" class="form-control summernote" id="synopsis"
                                         name="synopsis" cols="5" rows="5" placeholder="Write Here"></textarea>
@@ -42,7 +42,7 @@
                                 <div class="form-group">
                                     <label for="images">Images <span class="text-danger">*</span></label>
                                     <input type="file"
-                                        class="form-control mb-2"
+                                        class="mb-2 form-control"
                                         id="images"
                                         name="images[]"
                                         multiple
@@ -51,19 +51,19 @@
                                     <span class="text-danger">{{ $message }}</span>
                                     @enderror
                                     <br>
-                                    <div id="image-preview" class="d-flex flex-wrap gap-2 mt-2"></div>
+                                    <div id="image-preview" class="flex-wrap gap-2 mt-2 d-flex"></div>
                                 </div>
                             </div>
                             <div class="col-sm-12 file">
                                 <div class="form-group">
                                     <label for="video">Video Upload</label>
-                                    <input type="file" class="form-control mb-2" id="video" name="video" accept="video/*">
+                                    <input type="file" class="mb-2 form-control" id="video" name="video" accept="video/*">
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="modal-footer border-0">
+                <div class="border-0 modal-footer">
                     <div class="modal-button-box">
                         <button type="button" class="cancel-button-1" data-bs-dismiss="modal">
                             <i class='bx bx-x bx-flashing'></i> Cancel
