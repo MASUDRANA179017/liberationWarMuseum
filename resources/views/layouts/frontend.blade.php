@@ -12,8 +12,8 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
    <!-- #favicon -->
-   <link rel="shortcut icon" href="{{ asset('storage/'.$setting->logo_dark) }}" type="image/x-icon">
-   <link rel="icon" href="{{ asset('storage/'.$setting->logo_dark) }}" type="image/x-icon">
+   {{-- <link rel="shortcut icon" href="{{ asset('storage/'.$setting->logo_dark) }}" type="image/x-icon"> --}}
+   {{-- <link rel="icon" href="{{ asset('storage/'.$setting->logo_dark) }}" type="image/x-icon"> --}}
    <!-- google fonts -->
    <link rel="preconnect" href="https://fonts.googleapis.com/">
    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -307,9 +307,9 @@
                <div class="main-header__menu-box">
                   <nav class="navbar p-0">
                      <div class="navbar-logo">
-                        <a href="/">
+                        {{-- <a href="/">
                            <img src="{{ asset('storage/'.$setting->logo_dark) }}" alt="IEET BD Logo" height="50">
-                        </a>
+                        </a> --}}
                      </div>
                      <div class="navbar__options">
                         <div class="header-eight-navbar-space d-flex justify-content-end">
@@ -353,7 +353,7 @@
                         <!--      <a href="tel:{{$setting->contact_number}}">{{$setting->contact_number}}</a>-->
                         <!--   </div>-->
                         <!--</div>-->
-                        
+
                         <button class="open-offcanvas-nav d-flex d-xl-none" aria-label="toggle mobile menu"
                            title="open offcanvas menu">
                            <span class="icon-bar top-bar"></span>
@@ -868,7 +868,7 @@
             const scrollBtn = document.querySelector('.progress-wrap');
             const whatsappBtn = document.querySelector('.whatsapp-float');
 
-            //  page scroll 
+            //  page scroll
             if (window.scrollY > 200) {
                scrollBtn.classList.add('active'); // scroll button visible
                whatsappBtn.classList.add('move-up'); // whatsapp up

@@ -96,9 +96,9 @@ class FrontendController extends Controller
         $maintestimonial = Testimonialmain::where('status', true)->first();
         $clients = Client::where('status', true)->get();
 
-        $managements = Member::where('status', true)->where('department', 'Management')->orderBy('serial', 'asc')->take(4)->get();
-        $siteEngineers = Member::where('status', true)->where('department', 'Site Engineer Team')->orderBy('serial', 'asc')->take(4)->get();
-        $marketingEngineers = Member::where('status', true)->where('department', 'Marketing Engineer Team')->orderBy('serial', 'asc')->take(4)->get();
+        $managements = Member::where('status', true)->where('department', 'Management')->orderBy('id', 'asc')->take(4)->get();
+        $siteEngineers = Member::where('status', true)->where('department', 'Site Engineer Team')->orderBy('id', 'asc')->take(4)->get();
+        $marketingEngineers = Member::where('status', true)->where('department', 'Marketing Engineer Team')->orderBy('id', 'asc')->take(4)->get();
 
         $films = Film::where('status', true)->get();
 
@@ -197,9 +197,9 @@ class FrontendController extends Controller
     }
     public function managingTeam()
     {
-        $managements = Member::where('status', true)->where('department', 'Management')->orderBy('serial', 'asc')->get();
-        $siteEngineers = Member::where('status', true)->where('department', 'Site Engineer Team')->orderBy('serial', 'asc')->get();
-        $marketingEngineers = Member::where('status', true)->where('department', 'Marketing Engineer Team')->orderBy('serial', 'asc')->get();
+        $managements = Member::where('status', true)->where('department', 'Management')->orderBy('id', 'asc')->get();
+        $siteEngineers = Member::where('status', true)->where('department', 'Site Engineer Team')->orderBy('id', 'asc')->get();
+        $marketingEngineers = Member::where('status', true)->where('department', 'Marketing Engineer Team')->orderBy('id', 'asc')->get();
         return view('frontend.managing-team', [
             'managements' => $managements,
             'siteEngineers' => $siteEngineers,
@@ -265,7 +265,7 @@ class FrontendController extends Controller
 
     public function siteEngineerTeam()
     {
-        $siteEngineers = Member::where('status', true)->where('department', 'Site Engineer Team')->orderBy('serial', 'asc')->get();
+        $siteEngineers = Member::where('status', true)->where('department', 'Site Engineer Team')->orderBy('id', 'asc')->get();
         return view('frontend.site-engineer-team', [
             'siteEngineers' => $siteEngineers,
         ]);
@@ -273,7 +273,7 @@ class FrontendController extends Controller
 
     public function marketingTeam()
     {
-        $marketingEngineers = Member::where('status', true)->where('department', 'Marketing Engineer Team')->orderBy('serial', 'asc')->get();
+        $marketingEngineers = Member::where('status', true)->where('department', 'Marketing Engineer Team')->orderBy('id', 'asc')->get();
         return view('frontend.marketing-team', [
             'marketingEngineers' => $marketingEngineers,
         ]);
