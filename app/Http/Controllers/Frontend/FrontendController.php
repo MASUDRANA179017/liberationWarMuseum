@@ -40,6 +40,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
 use SebastianBergmann\LinesOfCode\Counter;
 use App\Http\Controllers\Admin\ProductController;
+use Illuminate\Support\Facades\Schema;
 
 class FrontendController extends Controller
 {
@@ -296,7 +297,10 @@ class FrontendController extends Controller
     {
         $about = About::where('status', true)->first();
         $clients = Client::where('status', true)->get();
-        $managements = Member::where('status', true)->where('department', 'Management')->orderBy('designation', 'asc')->get();
+        $managements = Member::where('status', true)
+            ->where('department', 'Management')
+            ->when(Schema::hasColumn('members', 'serial'), fn($q) => $q->orderBy('serial', 'asc'), fn($q) => $q->orderBy('designation', 'asc'))
+            ->get();
 
         return view('frontend.about-us', [
             'managements' => $managements,
@@ -304,6 +308,7 @@ class FrontendController extends Controller
             'clients' => $clients,
         ]);
     }
+
 
     public function whyChoose()
     {

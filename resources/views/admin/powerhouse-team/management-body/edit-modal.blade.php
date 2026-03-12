@@ -125,12 +125,14 @@
                                 <div class="col-md-6 mb-3 image">
                                     <img id="edit_image_preview" class="border mt-2" src="{{ asset('admin/assets/img/gallery.jpg') }}" width="96" height="72" alt="Preview">
                                 </div>
-                                <div class="col-md-6 ">
-                                    <label for="edit_serial">Serial Number</label>
-                                    <select name="serial" id="edit_serial" class="form-control" required>
-                                        <option value="">Select Serial Number</option>
-                                    </select>
-                                </div>
+                                @if(isset($hasSerial) && $hasSerial)
+                                    <div class="col-md-6 ">
+                                        <label for="edit_serial">Serial Number</label>
+                                        <select name="serial" id="edit_serial" class="form-control" required>
+                                            <option value="">Select Serial Number</option>
+                                        </select>
+                                    </div>
+                                @endif
                             </div>
                         </div>
 

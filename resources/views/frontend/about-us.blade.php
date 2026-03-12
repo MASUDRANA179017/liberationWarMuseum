@@ -282,118 +282,42 @@
                   <div class="overflow-hidden team-eight-slide position-relative" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
                      <div class="team-eight-active swiper-container">
                         <div class="swiper-wrapper team-eight-titming">
-
-                           <!-- slide 1 -->
-                           <div class="team-eight-wrapper swiper-slide">
-                              <div class="team-eight-thumb position-relative z-1">
-                                 <a href="team-details.html"><img src="assets/images/team/team-eight-thumb1.jpg" alt="thumb"></a>
-                                 <div class="team-eight-social">
-                                    <span><i class="fas fa-share-alt"></i></span>
-                                    <div class="team-eight-social-icon">
-                                       <ul>
-                                          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                       </ul>
+                           @forelse ($managements as $management)
+                              @php
+                                 $imagePath = $management->image ? asset('storage/' . $management->image) : 'https://placehold.co/600x600/dee2e6/495057?text=No+Image';
+                              @endphp
+                              <div class="team-eight-wrapper swiper-slide">
+                                 <div class="team-eight-thumb position-relative z-1">
+                                    <a href="{{ route('member.details.page', $management->id) }}"><img src="{{ $imagePath }}" alt="{{ $management->name }}"></a>
+                                    <div class="team-eight-social">
+                                       <span><i class="fas fa-share-alt"></i></span>
+                                       <div class="team-eight-social-icon">
+                                          <ul>
+                                             @if($management->facebook)
+                                             <li><a href="{{ $management->facebook }}" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                                             @endif
+                                             @if($management->linkedin)
+                                             <li><a href="{{ $management->linkedin }}" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
+                                             @endif
+                                             @if($management->whatsapp)
+                                             <li><a href="https://wa.me/{{ preg_replace('/\\D+/', '', $management->whatsapp) }}" target="_blank"><i class="fab fa-whatsapp"></i></a></li>
+                                             @endif
+                                          </ul>
+                                       </div>
                                     </div>
                                  </div>
-                              </div>
-                              <div class="text-center team-eight-content">
-                           <h4 class="team-eight-title"><a href="#" data-bs-toggle="modal" data-bs-target="#clientDetailsModal">Md. Firoz Uddin</a></h4>
-                           <p class="team-eight-paragraph">Managing Director</p>
-                        </div>
-                           </div>
-
-                           <!-- slide 2 -->
-                           <div class="team-eight-wrapper swiper-slide">
-                              <div class="team-eight-thumb position-relative z-1">
-                                 <a href="team-details.html"><img src="assets/images/team/team-eight-thumb2.jpg" alt="thumb"></a>
-                                 <div class="team-eight-social">
-                                    <span><i class="fas fa-share-alt"></i></span>
-                                    <div class="team-eight-social-icon">
-                                       <ul>
-                                          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                       </ul>
-                                    </div>
+                                 <div class="text-center team-eight-content">
+                                    <h4 class="team-eight-title">
+                                       <a href="{{ route('member.details.page', $management->id) }}">{{ $management->name }}</a>
+                                    </h4>
+                                    <p class="team-eight-paragraph">{{ $management->designation }}</p>
                                  </div>
                               </div>
-                              <div class="text-center team-eight-content">
-                           <h4 class="team-eight-title"><a href="#" data-bs-toggle="modal" data-bs-target="#clientDetailsModal">Zulfikar Ali</a></h4>
-                           <p class="team-eight-paragraph">Chairman</p>
-                        </div>
-                           </div>
-
-                           <!-- slide 3 -->
-                           <div class="team-eight-wrapper swiper-slide">
-                              <div class="team-eight-thumb position-relative z-1">
-                                 <a href="team-details.html"><img src="assets/images/team/team-eight-thumb3.jpg" alt="thumb"></a>
-                                 <div class="team-eight-social">
-                                    <span><i class="fas fa-share-alt"></i></span>
-                                    <div class="team-eight-social-icon">
-                                       <ul>
-                                          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                       </ul>
-                                    </div>
-                                 </div>
+                           @empty
+                              <div class="col-12 text-center">
+                                 <p class="text-muted">No members found.</p>
                               </div>
-                              <div class="text-center team-eight-content">
-                           <h4 class="team-eight-title"><a href="#" data-bs-toggle="modal" data-bs-target="#clientDetailsModal">Engr. Shariful Islam</a></h4>
-                           <p class="team-eight-paragraph">Chief Executive Officer</p>
-                        </div>
-                           </div>
-
-                           <!-- slide 2 -->
-                           <div class="team-eight-wrapper swiper-slide">
-                              <div class="team-eight-thumb position-relative z-1">
-                                 <a href="team-details.html"><img src="assets/images/team/team-eight-thumb4.jpg" alt="thumb"></a>
-                                 <div class="team-eight-social">
-                                    <span><i class="fas fa-share-alt"></i></span>
-                                    <div class="team-eight-social-icon">
-                                       <ul>
-                                          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                       </ul>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="text-center team-eight-content">
-                           <h4 class="team-eight-title"><a href="#" data-bs-toggle="modal" data-bs-target="#clientDetailsModal">Md. Erfan Ahmed</a></h4>
-                           <p class="team-eight-paragraph">General Manager</p>
-                        </div>
-                           </div>
-
-                           <!-- slide 2 -->
-                           <div class="team-eight-wrapper swiper-slide">
-                              <div class="team-eight-thumb position-relative z-1">
-                                 <a href="team-details.html"><img src="assets/images/team/team-eight-thumb4.jpg" alt="thumb"></a>
-                                 <div class="team-eight-social">
-                                    <span><i class="fas fa-share-alt"></i></span>
-                                    <div class="team-eight-social-icon">
-                                       <ul>
-                                          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                                       </ul>
-                                    </div>
-                                 </div>
-                              </div>
-                              <div class="text-center team-eight-content">
-                           <h4 class="team-eight-title"><a href="#" data-bs-toggle="modal" data-bs-target="#clientDetailsModal">Md. Erfan Ahmed</a></h4>
-                           <p class="team-eight-paragraph">General Manager</p>
-                        </div>
-                           </div>
-
-
+                           @endforelse
                         </div>
                      </div>
                   </div>

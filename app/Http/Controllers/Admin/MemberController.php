@@ -6,22 +6,26 @@ use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Schema;
 
 class MemberController extends Controller
 {
     public function index() {
-        $existingSerials = Member::pluck('serial')->toArray();
-        $totalMembers = Member::count();
-        $maxSerial = $totalMembers + 5;
-
-        // Generate dropdown numbers (1 to total+5)
+        $hasSerial = Schema::hasColumn('members', 'serial');
         $serialOptions = [];
-        for ($i = 1; $i <= $maxSerial; $i++) {
-            if (!in_array($i, $existingSerials)) {
-                $serialOptions[] = $i;
+        if ($hasSerial) {
+            $existingSerials = Member::pluck('serial')->toArray();
+            $totalMembers = Member::count();
+            $maxSerial = $totalMembers + 5;
+
+            for ($i = 1; $i <= $maxSerial; $i++) {
+                if (!in_array($i, $existingSerials)) {
+                    $serialOptions[] = $i;
+                }
             }
         }
-        return view('admin.powerhouse-team.powerful-team.index', compact('serialOptions'));
+
+        return view('admin.powerhouse-team.powerful-team.index', compact('serialOptions', 'hasSerial'));
     }
 
     public function store(Request $request)
@@ -70,7 +74,9 @@ class MemberController extends Controller
             if ($request->hasFile('image')) {
                 $member->image = uploadFile($request->file('image'), 'member/image');
             }
-            $member->serial = $request->serial;
+            if (Schema::hasColumn('members', 'serial')) {
+                $member->serial = $request->serial;
+            }
             $member->save();
 
             return response()->json([
@@ -89,20 +95,24 @@ class MemberController extends Controller
     public function edit($id)
     {
         $member = Member::findOrFail($id);
-        $existingSerials = Member::where('id', '!=', $id)->pluck('serial')->toArray(); // নিজেরটা বাদ দিয়ে
-        $totalMembers = Member::count();
-        $maxSerial = $totalMembers + 5;
-
+        $hasSerial = Schema::hasColumn('members', 'serial');
         $serialOptions = [];
-        for ($i = 1; $i <= $maxSerial; $i++) {
-            if (!in_array($i, $existingSerials)) {
-                $serialOptions[] = $i;
+        if ($hasSerial) {
+            $existingSerials = Member::where('id', '!=', $id)->pluck('serial')->toArray();
+            $totalMembers = Member::count();
+            $maxSerial = $totalMembers + 5;
+
+            for ($i = 1; $i <= $maxSerial; $i++) {
+                if (!in_array($i, $existingSerials)) {
+                    $serialOptions[] = $i;
+                }
             }
         }
 
         return response()->json([
             'member' => $member,
             'serialOptions' => $serialOptions,
+            'hasSerial' => $hasSerial,
         ]);
     }
 
@@ -151,7 +161,9 @@ class MemberController extends Controller
                 deleteFile($member->image);
                 $member->image = uploadFile($request->file('image'), 'member/image');
             }
-            $member->serial = $request->serial;
+            if (Schema::hasColumn('members', 'serial')) {
+                $member->serial = $request->serial;
+            }
             $member->save();
 
             return response()->json([
@@ -244,18 +256,20 @@ class MemberController extends Controller
 
 
      public function indexManagementBody() {
-        $existingSerials = Member::pluck('serial')->toArray();
-        $totalMembers = Member::count();
-        $maxSerial = $totalMembers + 5;
-
-        // Generate dropdown numbers (1 to total+5)
+        $hasSerial = Schema::hasColumn('members', 'serial');
         $serialOptions = [];
-        for ($i = 1; $i <= $maxSerial; $i++) {
-            if (!in_array($i, $existingSerials)) {
-                $serialOptions[] = $i;
+        if ($hasSerial) {
+            $existingSerials = Member::pluck('serial')->toArray();
+            $totalMembers = Member::count();
+            $maxSerial = $totalMembers + 5;
+
+            for ($i = 1; $i <= $maxSerial; $i++) {
+                if (!in_array($i, $existingSerials)) {
+                    $serialOptions[] = $i;
+                }
             }
         }
-        return view('admin.powerhouse-team.management-body.index', compact('serialOptions'));
+        return view('admin.powerhouse-team.management-body.index', compact('serialOptions', 'hasSerial'));
     }
 
     public function storeManagementBody(Request $request)
@@ -280,7 +294,7 @@ class MemberController extends Controller
             'address' => 'nullable|string',
             'about' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'serial' => 'nullable|integer|unique:members,serial',
+            'serial' => Schema::hasColumn('members', 'serial') ? 'nullable|integer|unique:members,serial' : 'nullable',
         ]);
 
         try {
@@ -305,7 +319,9 @@ class MemberController extends Controller
             if ($request->hasFile('image')) {
                 $member->image = uploadFile($request->file('image'), 'member/image');
             }
-            $member->serial = $request->serial;
+            if (Schema::hasColumn('members', 'serial')) {
+                $member->serial = $request->serial;
+            }
 
             $member->save();
 
@@ -325,20 +341,24 @@ class MemberController extends Controller
     public function editManagementBody($id)
     {
         $member = Member::findOrFail($id);
-        $existingSerials = Member::where('id', '!=', $id)->pluck('serial')->toArray(); // নিজেরটা বাদ দিয়ে
-        $totalMembers = Member::count();
-        $maxSerial = $totalMembers + 5;
-
+        $hasSerial = Schema::hasColumn('members', 'serial');
         $serialOptions = [];
-        for ($i = 1; $i <= $maxSerial; $i++) {
-            if (!in_array($i, $existingSerials)) {
-                $serialOptions[] = $i;
+        if ($hasSerial) {
+            $existingSerials = Member::where('id', '!=', $id)->pluck('serial')->toArray();
+            $totalMembers = Member::count();
+            $maxSerial = $totalMembers + 5;
+
+            for ($i = 1; $i <= $maxSerial; $i++) {
+                if (!in_array($i, $existingSerials)) {
+                    $serialOptions[] = $i;
+                }
             }
         }
 
         return response()->json([
             'member' => $member,
             'serialOptions' => $serialOptions,
+            'hasSerial' => $hasSerial,
         ]);
     }
 
@@ -363,7 +383,7 @@ class MemberController extends Controller
             'address' => 'nullable|string',
             'about' => 'nullable|string',
             'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-            'serial' => 'nullable|integer|unique:members,serial',
+            'serial' => Schema::hasColumn('members', 'serial') ? 'nullable|integer|unique:members,serial' : 'nullable',
         ]);
 
         try {
@@ -388,7 +408,9 @@ class MemberController extends Controller
                 deleteFile($member->image);
                 $member->image = uploadFile($request->file('image'), 'member/image');
             }
-            $member->serial = $request->serial;
+            if (Schema::hasColumn('members', 'serial')) {
+                $member->serial = $request->serial;
+            }
 
             $member->save();
 

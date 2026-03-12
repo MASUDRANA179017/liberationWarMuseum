@@ -123,15 +123,17 @@
                                         <img id="create_image_preview" class="border mt-2" src="{{ asset('admin/assets/img/gallery.jpg') }}" width="96" height="72" alt="Preview">
                                     </div>
 
-                                    <div class="col-md-6 ">
-                                        <label for="serial">Serial Number</label>
-                                        <select name="serial" id="serial" class="form-control" required>
-                                            <option value="">Select Serial Number</option>
-                                            @foreach ($serialOptions as $serial)
-                                                <option value="{{ $serial }}">{{ $serial }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                    @if(isset($hasSerial) && $hasSerial)
+                                        <div class="col-md-6 ">
+                                            <label for="serial">Serial Number</label>
+                                            <select name="serial" id="serial" class="form-control" required>
+                                                <option value="">Select Serial Number</option>
+                                                @foreach ($serialOptions as $serial)
+                                                    <option value="{{ $serial }}">{{ $serial }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    @endif
 
                                 </div>
                             </div>

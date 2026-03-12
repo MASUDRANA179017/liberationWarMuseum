@@ -11,9 +11,31 @@
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+   @php
+      $setting = $setting ?? \App\Models\Setting::first();
+      $favicon = isset($setting) && ($setting->favicon ?? $setting->logo_dark ?? $setting->logo_light)
+         ? asset('storage/' . ($setting->favicon ?? $setting->logo_dark ?? $setting->logo_light))
+         : asset('assets/images/favicon.png');
+      $headerLogo = isset($setting) && ($setting->logo_dark ?? $setting->logo_light)
+         ? asset('storage/' . ($setting->logo_dark ?? $setting->logo_light))
+         : asset('assets/images/logo.png');
+      $whatsappSource = $setting->whatsapp_number ?? $setting->hotline_number ?? $setting->contact_number ?? '';
+      $whatsappDigits = preg_replace('/\D+/', '', $whatsappSource);
+      if ($whatsappDigits) {
+         if (str_starts_with($whatsappDigits, '0') && strlen($whatsappDigits) === 11) {
+            $whatsappDigits = '88' . $whatsappDigits;
+         } elseif (str_starts_with($whatsappDigits, '1') && strlen($whatsappDigits) === 10) {
+            $whatsappDigits = '880' . $whatsappDigits;
+         }
+      }
+      $whatsappHref = $whatsappDigits
+         ? 'https://wa.me/' . $whatsappDigits
+         : 'https://wa.me/?text=' . urlencode('Hello!');
+   @endphp
+
    <!-- #favicon -->
-   <link rel="shortcut icon" href="{{ asset('storage/'.$setting->logo_dark) }}" type="image/x-icon">
-   <link rel="icon" href="{{ asset('storage/'.$setting->logo_dark) }}" type="image/x-icon">
+   <link rel="shortcut icon" href="{{ $favicon }}" type="image/x-icon">
+   <link rel="icon" href="{{ $favicon }}" type="image/x-icon">
    <!-- google fonts -->
    <link rel="preconnect" href="https://fonts.googleapis.com/">
    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -308,7 +330,7 @@
                   <nav class="p-0 navbar">
                      <div class="navbar-logo">
                         <a href="/">
-                           <img src="{{ asset('storage/'.$setting->logo_dark) }}" alt="IEET BD Logo" height="50">
+                           <img src="{{ $headerLogo }}" alt="{{ $setting->company_name ?? 'Logo' }}" height="50">
                         </a>
                      </div>
                      <div class="navbar__options">
@@ -363,7 +385,7 @@
             <div class="mobile-menu__header nav-fade">
                <div class="logo">
                   <a href="{{ route('home.page') }}" aria-label="home page" title="logo">
-                     <img src="{{ asset('storage/'.$setting->logo_dark) }}" alt="Image">
+                     <img src="{{ $headerLogo }}" alt="{{ $setting->company_name ?? 'Logo' }}">
                   </a>
                </div>
                <button aria-label="close mobile menu" class="close-mobile-menu">
@@ -861,7 +883,7 @@
       <!-- ==== / scroll to top end ==== -->
 
       <!-- ==== WhatsApp Floating Button Start ==== -->
-      <a href="https://wa.me/{{ $setting->whatsapp_number }}" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+      <a href="{{ $whatsappHref }}" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
          <i class="bx bxl-whatsapp"></i>
       </a>
       <!-- ==== WhatsApp Floating Button End ==== -->

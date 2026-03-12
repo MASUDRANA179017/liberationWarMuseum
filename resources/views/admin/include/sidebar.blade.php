@@ -162,7 +162,7 @@
                 </a>
                 </li>
                 --}}
-                {{-- <li class="nav-item {{ Request::routeIs('management.body.index', 'member.index') ? 'active submenu' : '' }}">
+                <li class="nav-item {{ Request::routeIs('management.body.index', 'member.index') ? 'active submenu' : '' }}">
                     <a data-bs-toggle="collapse" href="#power_house_team">
                         <i class='bx bxs-user-account'></i>
                         <span class="sub-item">Team</span>
@@ -173,18 +173,18 @@
                             <li class="{{ Route::currentRouteName() == 'management.body.index' ? 'active' : '' }}">
                                 <a href="{{ route('management.body.index') }}">
                                     <i class='bx bxs-user-detail'></i>
-                                    <span class="sub-item">Management Team</span>
+                                    <span class="sub-item">Management Body</span>
                                 </a>
                             </li>
                             <li class="{{ Route::currentRouteName() == 'member.index' ? 'active' : '' }}">
                                 <a href="{{ route('member.index') }}">
                                     <i class='bx bxs-user'></i>
-                                    <span class="sub-item">Engineer Team</span>
+                                    <span class="sub-item">Team Members</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
-                </li> --}}
+                </li>
 
 
                 <li class="nav-item {{ Request::routeIs('faq_main.index', 'faq') ? 'active submenu' : '' }}">
