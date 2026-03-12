@@ -3842,7 +3842,7 @@ background: var(--bs-secondary-bg);
 /* ====
  --------- (4.01) header styles end ---------
  ==== */
-/* ==== 
+/* ====
  --------- (4.02) banner styles start ---------
  ==== */
 .banner {
@@ -19346,7 +19346,7 @@ font-weight: 700;
 /* Header css */
 
 .header-eight-area {
-      background: #2596be;
+      background: #2D3790;
     backdrop-filter: blur(5px);
   box-shadow: 0 10px 100px 0 rgba(0, 0, 0, 0.08);
   border-radius: 15px !important;
@@ -20924,7 +20924,7 @@ width: 50%;
    z-index: 1;
    overflow: hidden;
    }
-   
+
    .spade {
    position: absolute;
    top: 25%;

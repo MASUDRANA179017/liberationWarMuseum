@@ -116,7 +116,7 @@
                         @endphp
 
                         <div class="mb-4 about-description">
-                            {!! \Illuminate\Support\Str::limit($cleanDescription, 700, '...') !!}
+                            {!! $cleanDescription !!}
                         </div>
 
                     </div>
@@ -220,7 +220,6 @@
         }
     </style>
     <!--  product section end -->
-
 
 
 
@@ -403,7 +402,7 @@
                             <a href="{{ $client->show_url && $client->url ? $client->url : 'javascript:void(0);' }}"
                                 {{ $client->show_url && $client->url ? 'target=_blank' : '' }}
                                 class="text-decoration-none d-block">
-                                <div class="p-3 border rounded-4 bg-white shadow-sm d-flex align-items-center justify-content-center"
+                                <div class="p-3 bg-white border shadow-sm rounded-4 d-flex align-items-center justify-content-center"
                                     style="height: 90px;">
                                     @if ($client->logo)
                                         <img src="{{ asset('storage/' . $client->logo) }}" alt="{{ $client->name }}"

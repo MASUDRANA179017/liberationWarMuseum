@@ -84,7 +84,7 @@ class FrontendController extends Controller
         $about = About::where('status', true)->first();
         $action = CallToAction::where('status', true)->first();
 
-        $exhibitions = Exhibition::where('status', true)->latest()->take(4)->get();
+        $exhibitions = Exhibition::where('status', true)->latest()->get();
         $exhibitionCategories = ExhibitionCategory::where('status', true)->get();
         $counters = MainCounter::where('status', true)->get();
 
