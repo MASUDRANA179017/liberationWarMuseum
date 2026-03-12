@@ -11,9 +11,19 @@
 
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+   @php
+      $setting = $setting ?? \App\Models\Setting::first();
+      $favicon = isset($setting) && ($setting->favicon ?? $setting->logo_dark ?? $setting->logo_light)
+         ? asset('storage/' . ($setting->favicon ?? $setting->logo_dark ?? $setting->logo_light))
+         : asset('assets/images/favicon.png');
+      $headerLogo = isset($setting) && ($setting->logo_dark ?? $setting->logo_light)
+         ? asset('storage/' . ($setting->logo_dark ?? $setting->logo_light))
+         : asset('assets/images/logo.png');
+   @endphp
+
    <!-- #favicon -->
-   <link rel="shortcut icon" href="{{ asset('storage/'.$setting->logo_dark) }}" type="image/x-icon">
-   <link rel="icon" href="{{ asset('storage/'.$setting->logo_dark) }}" type="image/x-icon">
+   <link rel="shortcut icon" href="{{ $favicon }}" type="image/x-icon">
+   <link rel="icon" href="{{ $favicon }}" type="image/x-icon">
    <!-- google fonts -->
    <link rel="preconnect" href="https://fonts.googleapis.com/">
    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -308,7 +318,7 @@
                   <nav class="p-0 navbar">
                      <div class="navbar-logo">
                         <a href="/">
-                           <img src="{{ asset('storage/'.$setting->logo_dark) }}" alt="IEET BD Logo" height="50">
+                           <img src="{{ $headerLogo }}" alt="{{ $setting->company_name ?? 'Logo' }}" height="50">
                         </a>
                      </div>
                      <div class="navbar__options">
@@ -363,7 +373,7 @@
             <div class="mobile-menu__header nav-fade">
                <div class="logo">
                   <a href="{{ route('home.page') }}" aria-label="home page" title="logo">
-                     <img src="{{ asset('storage/'.$setting->logo_dark) }}" alt="Image">
+                     <img src="{{ $headerLogo }}" alt="{{ $setting->company_name ?? 'Logo' }}">
                   </a>
                </div>
                <button aria-label="close mobile menu" class="close-mobile-menu">
@@ -738,24 +748,105 @@
       @yield('content')
 
       <!-- ==== footer start ==== -->
-      <footer class="pt-0 footer-two ff-footer">
+      <footer class="footer-two ff-footer">
+         <div class="container">
+            <div class="row gutter-40">
+               <div class="col-12 col-lg-4">
+                  <div class="footer-two__widget">
+                     <div class="footer-two__widget-logo">
+                        <a href="{{ route('home.page') }}">
+                           <img src="{{ $headerLogo }}" alt="{{ $setting->company_name ?? 'Logo' }}">
+                        </a>
+                     </div>
 
-         <div class="mt-0 footer-two__copyright">
+                     <ul class="footer-two__widget-content footer-two__widget-content--contact">
+                        @if(isset($setting) && $setting->contact_number)
+                        <li>
+                           <a href="tel:{{ $setting->contact_number }}"><i class="fa-solid fa-phone"></i>{{ $setting->contact_number }}</a>
+                        </li>
+                        @endif
+                        @if(isset($setting) && $setting->email)
+                        <li>
+                           <a href="mailto:{{ $setting->email }}"><i class="fa-regular fa-envelope"></i>{{ $setting->email }}</a>
+                        </li>
+                        @endif
+                        @if(isset($setting) && $setting->address)
+                        <li>
+                           <a href="javascript:void(0);"><i class="fa-solid fa-location-dot"></i>{{ $setting->address }}</a>
+                        </li>
+                        @endif
+                     </ul>
+
+                     <div class="social d-flex">
+                        @if(isset($setting) && $setting->facebook)
+                        <a href="{{ $setting->facebook }}" target="_blank" aria-label="facebook" title="facebook">
+                           <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        @endif
+                        @if(isset($setting) && $setting->linkedin)
+                        <a href="{{ $setting->linkedin }}" target="_blank" aria-label="linkedin" title="linkedin">
+                           <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        @endif
+                        @if(isset($setting) && $setting->website)
+                        <a href="{{ $setting->website }}" target="_blank" aria-label="website" title="website">
+                           <i class="fa-solid fa-globe"></i>
+                        </a>
+                        @endif
+                     </div>
+                  </div>
+               </div>
+
+               <div class="col-12 col-md-6 col-lg-4">
+                  <div class="footer-two__widget">
+                     <h5>Explore {{ $setting->company_name ?? '' }}</h5>
+                     <div class="line">
+                        <span class="large-line"></span><span></span><span></span>
+                     </div>
+                     <ul class="mt-4">
+                        <li><a href="{{ route('gallery.page') }}">Gallery</a></li>
+                        <li><a href="{{ route('powerhouse.team') }}">Team</a></li>
+                        <li><a href="{{ route('contact-us.page') }}">Contact</a></li>
+                        <li><a href="{{ route('news.page') }}">News</a></li>
+                        <li><a href="{{ route('career.page') }}">Career</a></li>
+                     </ul>
+                  </div>
+               </div>
+
+               <div class="col-12 col-md-6 col-lg-4">
+                  <div class="footer-two__widget">
+                     <h5>Service</h5>
+                     <div class="line">
+                        <span class="large-line"></span><span></span><span></span>
+                     </div>
+                     <ul class="mt-4">
+                        <li><a href="{{ route('why-choose.page') }}">Why choose us</a></li>
+                        <li><a href="{{ route('film.page') }}">Our Service</a></li>
+                        <li><a href="{{ route('home.page') }}">Partners</a></li>
+                        <li><a href="{{ route('exhibition.page') }}">Products</a></li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="footer-two__copyright">
             <div class="container">
                <div class="row align-items-center gutter-12">
                   <div class="col-12 col-lg-6">
                      <div class="text-center footer-two__copyright-inner text-lg-start">
-                        <p class="m-0">Copyright © <span id="copyrightYear">{{ date('Y') }}</span>
-                           <a href="/">{{ $setting->company_name ?? '' }}</a>.
-                           All Rights Reserved. Developed By <a href="https://qbit-tech.com/" target="_blank">QBit Tech</a>
+                        <p class="m-0">© <span id="copyrightYear">{{ date('Y') }}</span>
+                           <a href="{{ route('home.page') }}">{{ $setting->company_name ?? '' }}</a>. All rights reserved.
                         </p>
                      </div>
                   </div>
                   <div class="col-12 col-lg-6">
                      <div class="footer__bottom-left">
                         <ul class="footer__bottom-list justify-content-center justify-content-lg-end">
-                           <li><a href="tel:{{ $setting->contact_number }}"><i class="fa-solid fa-phone"></i>{{ $setting->contact_number }}</a></li>
-                           <li><a href="mailto:{{ $setting->email }}"><i class="fa-regular fa-envelope"></i>{{ $setting->email }}</a></li>
+                           <li><a href="{{ route('about-us.page') }}">About Us</a></li>
+                           <li><a href="{{ route('film.page') }}">Services</a></li>
+                           <li><a href="{{ route('news.page') }}">News</a></li>
+                           <li><a href="{{ route('exhibition.page') }}">Portfolio</a></li>
                         </ul>
                      </div>
                   </div>
@@ -780,9 +871,11 @@
       <!-- ==== / scroll to top end ==== -->
 
       <!-- ==== WhatsApp Floating Button Start ==== -->
+      @if(isset($setting) && $setting->whatsapp_number)
       <a href="https://wa.me/{{ $setting->whatsapp_number }}" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
          <i class="bx bxl-whatsapp"></i>
       </a>
+      @endif
       <!-- ==== WhatsApp Floating Button End ==== -->
 
       <style>
