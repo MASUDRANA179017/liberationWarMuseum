@@ -40,10 +40,28 @@
                 <h2 class="project-title">PRODUCT ESTIMATOR</h2>
                 
                 <div class="button-group">
-                    <a href="tel:+8801700000000" class="contact-btn call-btn">
+                    @php
+                        $callDigits = preg_replace('/\D+/', '', $setting->contact_number ?? '');
+                        if ($callDigits) {
+                            if (str_starts_with($callDigits, '0') && strlen($callDigits) === 11) {
+                                $callDigits = '88' . $callDigits;
+                            } elseif (str_starts_with($callDigits, '1') && strlen($callDigits) === 10) {
+                                $callDigits = '880' . $callDigits;
+                            }
+                        }
+                        $whatsappDigits = preg_replace('/\D+/', '', $setting->whatsapp_number ?? '');
+                        if ($whatsappDigits) {
+                            if (str_starts_with($whatsappDigits, '0') && strlen($whatsappDigits) === 11) {
+                                $whatsappDigits = '88' . $whatsappDigits;
+                            } elseif (str_starts_with($whatsappDigits, '1') && strlen($whatsappDigits) === 10) {
+                                $whatsappDigits = '880' . $whatsappDigits;
+                            }
+                        }
+                    @endphp
+                    <a href="{{ $callDigits ? 'tel:+' . $callDigits : 'javascript:void(0);' }}" class="contact-btn call-btn">
                         <i class="fas fa-phone"></i> Call Us
                     </a>
-                    <a href="https://wa.me/8801700000000" target="_blank" class="contact-btn whatsapp-btn">
+                    <a href="{{ $whatsappDigits ? 'https://wa.me/' . $whatsappDigits : 'https://wa.me/?text=' . urlencode('Hello!') }}" target="_blank" class="contact-btn whatsapp-btn">
                         <i class="fab fa-whatsapp"></i> WhatsApp
                     </a>
                 </div>

@@ -19,6 +19,17 @@
       $headerLogo = isset($setting) && ($setting->logo_dark ?? $setting->logo_light)
          ? asset('storage/' . ($setting->logo_dark ?? $setting->logo_light))
          : asset('assets/images/logo.png');
+      $whatsappDigits = preg_replace('/\D+/', '', $setting->whatsapp_number ?? '');
+      if ($whatsappDigits) {
+         if (str_starts_with($whatsappDigits, '0') && strlen($whatsappDigits) === 11) {
+            $whatsappDigits = '88' . $whatsappDigits;
+         } elseif (str_starts_with($whatsappDigits, '1') && strlen($whatsappDigits) === 10) {
+            $whatsappDigits = '880' . $whatsappDigits;
+         }
+      }
+      $whatsappHref = $whatsappDigits
+         ? 'https://wa.me/' . $whatsappDigits
+         : 'https://wa.me/?text=' . urlencode('Hello!');
    @endphp
 
    <!-- #favicon -->
@@ -334,15 +345,15 @@
                                  <li class="navbar__item nav-fade">
                                     <a href="{{route('film.page')}}">Services</a>
                                  </li>
-                                 {{-- <li class="navbar__item nav-fade">
+                                 <li class="navbar__item nav-fade">
                                     <a href="{{route('product.page')}}">Performances</a>
-                                 </li> --}}
+                                 </li>
                                  <li class="navbar__item nav-fade">
                                     <a href="{{route('exhibition.page')}}">Products</a>
                                  </li>
-                                 {{-- <li class="navbar__item nav-fade">
+                                 <li class="navbar__item nav-fade">
                                     <a href="{{route('gallery.page')}}">Archives</a>
-                                 </li> --}}
+                                 </li>
                                  <li class="navbar__item nav-fade">
                                     <a href="{{route('news.page')}}">News</a>
                                  </li>
@@ -871,11 +882,9 @@
       <!-- ==== / scroll to top end ==== -->
 
       <!-- ==== WhatsApp Floating Button Start ==== -->
-      @if(isset($setting) && $setting->whatsapp_number)
-      <a href="https://wa.me/{{ $setting->whatsapp_number }}" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+      <a href="{{ $whatsappHref }}" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
          <i class="bx bxl-whatsapp"></i>
       </a>
-      @endif
       <!-- ==== WhatsApp Floating Button End ==== -->
 
       <style>

@@ -101,8 +101,6 @@
                 <div class="col-12 col-lg-7 col-xxl-7">
                     <div class="difference-two__content">
 
-
-
                         <h2 class="title-animation fs-35">
                             {{ isset($about) && $about->title ? $about->title : 'A Leading Real Estate Developer' }}
                         </h2>
@@ -116,7 +114,7 @@
                         @endphp
 
                         <div class="mb-4 about-description">
-                            {!! \Illuminate\Support\Str::limit($cleanDescription, 700, '...') !!}
+                            {!! $cleanDescription !!}
                         </div>
 
                     </div>
@@ -285,7 +283,20 @@
                                     <a href="{{ $detailsRoute }}" class="p-3 w-auto action-btn-success h-30px">
                                         <i class='bx bx-show fs-15 me-1'></i>View Details
                                     </a>
-                                    <a href="#" class="p-3 w-auto action-btn-info ms-2 h-30px" title="WhatsApp">
+                                    @php
+                                        $whatsappDigits = preg_replace('/\D+/', '', $setting->whatsapp_number ?? '');
+                                        if ($whatsappDigits) {
+                                            if (str_starts_with($whatsappDigits, '0') && strlen($whatsappDigits) === 11) {
+                                                $whatsappDigits = '88' . $whatsappDigits;
+                                            } elseif (str_starts_with($whatsappDigits, '1') && strlen($whatsappDigits) === 10) {
+                                                $whatsappDigits = '880' . $whatsappDigits;
+                                            }
+                                        }
+                                        $whatsappHref = $whatsappDigits
+                                            ? 'https://wa.me/' . $whatsappDigits . '?text=' . urlencode('Hello! I am interested in ' . ($exhibition->exhibition_title ?? 'this product') . '.')
+                                            : 'https://wa.me/?text=' . urlencode('Hello! I am interested in ' . ($exhibition->exhibition_title ?? 'this product') . '.');
+                                    @endphp
+                                    <a href="{{ $whatsappHref }}" target="_blank" class="p-3 w-auto action-btn-info ms-2 h-30px" title="WhatsApp">
                                         <i class='bx bxl-whatsapp fs-15 me-1'></i> Message
                                     </a>
                                 </div>
